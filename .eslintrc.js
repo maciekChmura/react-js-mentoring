@@ -1,6 +1,6 @@
 module.exports = {
-    "extends": "airbnb",
-    "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
-    }
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
+  }
 };
