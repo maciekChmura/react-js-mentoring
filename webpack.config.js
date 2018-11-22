@@ -7,7 +7,7 @@ module.exports = env => {
 
   return {
     mode: modeOption ? 'development' : 'production',
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     devtool: modeOption ? 'source-map' : 'none',
     devServer: {
       contentBase: './dist',
@@ -34,17 +34,18 @@ module.exports = env => {
     resolve: {
       extensions: ['*', '.js', '.jsx']
     },
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      publicPath: './',
-      filename: 'bundle.js'
-    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         title: 'React Mentoring',
-        template: 'template.html'
+        template: 'template.html',
+        filename: './index.html'
       })
-    ]
+    ],
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      // publicPath: './',   //for now this breaks HtmlWebpackPlugin
+      filename: 'bundle.js'
+    }
   };
 };
