@@ -24,9 +24,9 @@ module.exports = env => {
           test: /\.(png|jpg|gif)$/,
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
+            name: '[name].[ext]',
             outputPath: 'images/',
-            publicPath: 'assets/'
+            publicPath: 'images/'
           }
         }
       ]
@@ -37,12 +37,13 @@ module.exports = env => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-      filename: 'bundle.js'
+      filename: './bundle.js'
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-        title: 'React Mentoring'
+        title: 'React Mentoring',
+        template: 'template.html'
       })
     ]
   };
