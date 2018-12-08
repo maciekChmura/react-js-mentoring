@@ -16,7 +16,7 @@ const HeaderCSSGrid = styled.div`
   grid-area: 2 / 3 / 1 / 2;
   display: grid;
   grid-template-columns: 50px 800px 50px;
-  grid-template-rows: 80px 50px 50px 50px;
+  grid-template-rows: 80px 50px 100px;
   background-image: url(${netflixBack});
   background-position: center;
   background-repeat: no-repeat;
@@ -25,8 +25,17 @@ const HeaderCSSGrid = styled.div`
 
 class App extends Component {
   state = {
-    movie: 'test',
-    searchString: ''
+    movies: {}
+  };
+
+  performSearch = data => {
+    console.log(data);
+  };
+
+  componentDidMount = () => {
+    fetch('http://react-cdp-api.herokuapp.com/movies')
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data }));
   };
 
   render() {
@@ -36,7 +45,7 @@ class App extends Component {
         <HeaderCSSGrid>
           <PageName />
           <FormTitle />
-          <SearchForm />
+          <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
       </MainCSSGrid>
     );
