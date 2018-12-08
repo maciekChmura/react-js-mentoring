@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans');
 
   * {
-    border: 1px solid aqua;
+    border: 1px solid dodgerblue;
   }
 
   body {

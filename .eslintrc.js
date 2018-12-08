@@ -9,7 +9,8 @@ module.exports = {
     }
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }]
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react/prefer-stateless-function': false
   },
   env: {
     browser: true,
