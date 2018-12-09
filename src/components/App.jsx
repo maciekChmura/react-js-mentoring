@@ -6,6 +6,7 @@ import netflixBack from '../img/netflix_back.jpg';
 import FormTitle from './Header/FormTitle';
 import SearchForm from './Header/SearchForm';
 import Results from './Body/Results';
+import ResultsOptions from './Helper/ResultsOptions';
 
 const MainCSSGrid = styled.div`
   display: grid;
@@ -24,17 +25,15 @@ const HeaderCSSGrid = styled.div`
   background-size: cover;
 `;
 
-const ResultsOptions = styled.div`
-  grid-area: 2 / 2 / 3 / 3;
-`;
-
 const Footer = styled.div`
   grid-area: 4 / 2 / 5 / 3;
 `;
 
 class App extends Component {
   state = {
-    data: []
+    data: [],
+    sortedData: [],
+    sortingType: 'release'
   };
 
   performSearch = data => {
@@ -47,7 +46,13 @@ class App extends Component {
       .then(data => this.setState({ data: data.data }));
   };
 
+  handleClick = data => {
+    console.log(data);
+    this.setState({ sortingType: data });
+  };
+
   render() {
+    const { data, sortedData } = this.state;
     return (
       <MainCSSGrid>
         <GlobalStyle />
@@ -56,12 +61,8 @@ class App extends Component {
           <FormTitle />
           <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
-        <ResultsOptions />
-        {this.state.data ? (
-          <Results results={this.state.data} />
-        ) : (
-          <p>loader</p>
-        )}
+        <ResultsOptions dataSize={data.length} handleClick={this.handleClick} />
+        {data ? <Results results={data} /> : <p>loader</p>}
         <Footer />
       </MainCSSGrid>
     );

@@ -12,9 +12,10 @@ const ResultsWrapper = styled.div`
 
 class Results extends Component {
   render() {
+    const { results } = this.props;
     return (
       <ResultsWrapper>
-        {this.props.results.map(result => (
+        {results.map(result => (
           <MovieTile key={result.id} data={result} />
         ))}
       </ResultsWrapper>
