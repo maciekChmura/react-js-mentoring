@@ -32,27 +32,36 @@ const Footer = styled.div`
 class App extends Component {
   state = {
     data: [],
-    sortedData: [],
-    sortingType: 'release'
+    sortingType: 'release date',
+    searchBy: 'title'
   };
 
-  performSearch = data => {
-    console.log(data);
-  };
+  performSearch = searchString => {
+    const { sortingType, searchBy } = this.state;
 
-  componentDidMount = () => {
-    fetch('http://react-cdp-api.herokuapp.com/movies')
+    fetch(
+      `http://react-cdp-api.herokuapp.com/movies
+      ?sortBy=${sortingType.replace(' ', '_')}
+      &sortOrder=desc&search=${searchString}
+      &searchBy=${searchBy}
+      &limit=12`
+    )
       .then(response => response.json())
       .then(data => this.setState({ data: data.data }));
   };
 
-  handleClick = data => {
-    console.log(data);
+  componentDidMount = () => {
+    fetch('http://react-cdp-api.herokuapp.com/movies?limit=12')
+      .then(response => response.json())
+      .then(data => this.setState({ data: data.data }));
+  };
+
+  changeSorting = data => {
     this.setState({ sortingType: data });
   };
 
   render() {
-    const { data, sortedData } = this.state;
+    const { data, sortingType } = this.state;
     return (
       <MainCSSGrid>
         <GlobalStyle />
@@ -61,7 +70,11 @@ class App extends Component {
           <FormTitle />
           <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
-        <ResultsOptions dataSize={data.length} handleClick={this.handleClick} />
+        <ResultsOptions
+          dataSize={data.length}
+          changeSorting={this.changeSorting}
+          sortingType={sortingType}
+        />
         {data ? <Results results={data} /> : <p>loader</p>}
         <Footer />
       </MainCSSGrid>

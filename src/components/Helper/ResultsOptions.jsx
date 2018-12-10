@@ -20,7 +20,7 @@ const Display = styled.p`
 
 class ResultsOptions extends Component {
   render() {
-    const { dataSize } = this.props;
+    const { dataSize, changeSorting, sortingType } = this.props;
     return (
       <ResultsOptionsWrapper>
         <InfoWrapper>
@@ -30,9 +30,14 @@ class ResultsOptions extends Component {
           <Display>Sort by:</Display>
           <SortingButton
             text="release date"
-            handleClick={this.props.handleClick}
+            changeSorting={changeSorting}
+            sortingType={sortingType}
           />
-          <SortingButton text="rating" handleClick={this.props.handleClick} />
+          <SortingButton
+            text="rating"
+            changeSorting={changeSorting}
+            sortingType={sortingType}
+          />
         </ButtonsWrapper>
       </ResultsOptionsWrapper>
     );

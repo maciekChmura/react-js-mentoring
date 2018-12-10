@@ -2,19 +2,21 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
+  color: ${props => (props.sortingType === props.text ? 'salmon' : 'white')};
   margin: 5px;
   background-color: lightblue;
 `;
 
 class SortingButton extends Component {
-  handleClick = () => {
-    console.log(this.props.text);
-  };
-
   render() {
+    const { changeSorting, sortingType, text } = this.props;
     return (
-      <Button onClick={() => this.props.handleClick(this.props.text)}>
-        {this.props.text}
+      <Button
+        onClick={() => changeSorting(text)}
+        sortingType={sortingType}
+        text={text}
+      >
+        {text}
       </Button>
     );
   }
