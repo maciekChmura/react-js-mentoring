@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import OptionButton from '../Helper/OptionButton';
 
 const Wrapper = styled.div`
   grid-area: 3 / 2 / 3 / 4;
@@ -9,7 +10,14 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div``;
 
-const ButtonsWrapper = styled.div``;
+const ButtonsWrapper = styled.div`
+  display: flex;
+`;
+
+const Display = styled.p`
+  margin: 5px;
+  color: white;
+`;
 
 class SearchForm extends Component {
   state = {
@@ -26,6 +34,8 @@ class SearchForm extends Component {
   };
 
   render() {
+    const { searchOption, changeSearch } = this.props;
+    const { searchValue } = this.state;
     return (
       <Wrapper>
         <form onSubmit={this.handleFormSubmit}>
@@ -33,12 +43,25 @@ class SearchForm extends Component {
             <input
               id="location"
               placeholder="movie"
-              value={this.state.searchValue}
+              value={searchValue}
               onChange={this.handleInputChange}
             />
           </InputWrapper>
           <ButtonsWrapper>
-            <button onClick={this.handleFormSubmit}>Search</button>
+            <Display>Search by: </Display>
+            <OptionButton
+              text="title"
+              changeOption={changeSearch}
+              option={searchOption}
+            />
+            <OptionButton
+              text="genres"
+              changeOption={changeSearch}
+              option={searchOption}
+            />
+            <button onClick={this.handleFormSubmit} type="button">
+              Search
+            </button>
           </ButtonsWrapper>
         </form>
       </Wrapper>

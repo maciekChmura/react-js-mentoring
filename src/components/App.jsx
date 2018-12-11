@@ -33,18 +33,16 @@ class App extends Component {
   state = {
     data: [],
     sortingType: 'release date',
-    searchBy: 'title'
+    searchOption: 'title'
   };
 
   performSearch = searchString => {
-    const { sortingType, searchBy } = this.state;
-
+    const { sortingType, searchOption } = this.state;
     fetch(
-      `http://react-cdp-api.herokuapp.com/movies
-      ?sortBy=${sortingType.replace(' ', '_')}
-      &sortOrder=desc&search=${searchString}
-      &searchBy=${searchBy}
-      &limit=12`
+      `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortingType.replace(
+        ' ',
+        '_'
+      )}&sortOrder=desc&search=${searchString}&searchBy=${searchOption}&limit=12`
     )
       .then(response => response.json())
       .then(data => this.setState({ data: data.data }));
@@ -57,18 +55,28 @@ class App extends Component {
   };
 
   changeSorting = data => {
+    console.log(data);
     this.setState({ sortingType: data });
   };
 
+  changeSearch = data => {
+    event.preventDefault(); // TODO probably bad solution
+    this.setState({ searchOption: data });
+  };
+
   render() {
-    const { data, sortingType } = this.state;
+    const { data, sortingType, searchOption } = this.state;
     return (
       <MainCSSGrid>
         <GlobalStyle />
         <HeaderCSSGrid>
           <PageName />
           <FormTitle />
-          <SearchForm handleFormSubmit={this.performSearch} />
+          <SearchForm
+            handleFormSubmit={this.performSearch}
+            searchOption={searchOption}
+            changeSearch={this.changeSearch}
+          />
         </HeaderCSSGrid>
         <ResultsOptions
           dataSize={data.length}

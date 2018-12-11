@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SortingButton from './SortingButton';
+import OptionButton from './OptionButton';
 
 const ResultsOptionsWrapper = styled.div`
   grid-area: 2 / 2 / 3 / 3;
@@ -28,15 +28,15 @@ class ResultsOptions extends Component {
         </InfoWrapper>
         <ButtonsWrapper>
           <Display>Sort by:</Display>
-          <SortingButton
+          <OptionButton
             text="release date"
-            changeSorting={changeSorting}
-            sortingType={sortingType}
+            changeOption={changeSorting}
+            option={sortingType}
           />
-          <SortingButton
+          <OptionButton
             text="rating"
-            changeSorting={changeSorting}
-            sortingType={sortingType}
+            changeOption={changeSorting}
+            option={sortingType}
           />
         </ButtonsWrapper>
       </ResultsOptionsWrapper>
