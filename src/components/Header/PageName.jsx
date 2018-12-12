@@ -6,7 +6,6 @@ const H1 = styled.h1`
   font-size: 28px;
   color: #dd1133;
   width: auto;
-  /* padding: 10px; */
 `;
 
 const PageName = () => <H1>Netflix Roulette</H1>;

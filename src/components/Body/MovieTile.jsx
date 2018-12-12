@@ -6,7 +6,7 @@ import MovieGenre from './MovieGenre';
 
 const MovieTileWrapper = styled.div`
   width: 200px;
-  height: 360px;
+  height: 380px;
   display: flex;
   flex-direction: column;
   margin-top: 10px;

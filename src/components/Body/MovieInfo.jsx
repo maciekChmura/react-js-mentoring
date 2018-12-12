@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const MovieInfoWrapper = styled.div`
@@ -20,10 +20,11 @@ const Year = styled.p`
 `;
 
 const MovieInfo = props => {
+  const { title, release_date } = props;
   return (
     <MovieInfoWrapper>
-      <Title>{props.title}</Title>
-      <Year>{props.release_date.slice(0, 4)}</Year>
+      <Title>{title}</Title>
+      <Year>{release_date.slice(0, 4)}</Year>
     </MovieInfoWrapper>
   );
 };

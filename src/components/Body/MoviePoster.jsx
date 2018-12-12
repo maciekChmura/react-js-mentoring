@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const PosterWrapper = styled.div`
   width: 200px;
-  height: 280px;
+  height: 300px;
   overflow: hidden;
 `;
 

@@ -7,11 +7,12 @@ import FormTitle from './Header/FormTitle';
 import SearchForm from './Header/SearchForm';
 import Results from './Body/Results';
 import ResultsOptions from './Helper/ResultsOptions';
+import MovieDetails from './Detail/MovieDetails';
 
 const MainCSSGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 900px 1fr;
-  grid-template-rows: 230px 50px auto 50px;
+  grid-template-rows: 230px 50px auto 50px 500px;
 `;
 
 const HeaderCSSGrid = styled.div`
@@ -27,13 +28,28 @@ const HeaderCSSGrid = styled.div`
 
 const Footer = styled.div`
   grid-area: 4 / 2 / 5 / 3;
+  background-color: lightgrey;
+`;
+
+const Detail = styled.div`
+  grid-area: 5 / 2 / 6 / 3;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${netflixBack});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 class App extends Component {
   state = {
     data: [],
     sortingType: 'release date',
-    searchOption: 'title'
+    searchOption: 'title',
+    movie: ''
   };
 
   performSearch = searchString => {
@@ -52,6 +68,11 @@ class App extends Component {
     fetch('http://react-cdp-api.herokuapp.com/movies?limit=12')
       .then(response => response.json())
       .then(data => this.setState({ data: data.data }));
+
+    // temporary fetch, just to present movie details
+    fetch('http://react-cdp-api.herokuapp.com/movies/12')
+      .then(response => response.json())
+      .then(data => this.setState({ movie: data }));
   };
 
   changeSorting = data => {
@@ -65,7 +86,7 @@ class App extends Component {
   };
 
   render() {
-    const { data, sortingType, searchOption } = this.state;
+    const { data, sortingType, searchOption, movie } = this.state;
     return (
       <MainCSSGrid>
         <GlobalStyle />
@@ -85,6 +106,9 @@ class App extends Component {
         />
         {data ? <Results results={data} /> : <p>loader</p>}
         <Footer />
+        <Detail>
+          {movie ? <MovieDetails details={movie} /> : <p>loader</p>}
+        </Detail>
       </MainCSSGrid>
     );
   }

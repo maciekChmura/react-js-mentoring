@@ -9,8 +9,6 @@ const ResultsOptionsWrapper = styled.div`
   background-color: #eee;
 `;
 
-const InfoWrapper = styled.div``;
-
 const ButtonsWrapper = styled.div`
   display: flex;
 `;
@@ -26,9 +24,7 @@ class ResultsOptions extends Component {
     const { dataSize, changeSorting, sortingType } = this.props;
     return (
       <ResultsOptionsWrapper>
-        <InfoWrapper>
-          <Display>{dataSize} movies found</Display>
-        </InfoWrapper>
+        <Display>{dataSize} movies found</Display>
         <ButtonsWrapper>
           <Display>Sort by:</Display>
           <OptionButton

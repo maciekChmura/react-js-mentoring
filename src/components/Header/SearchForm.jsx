@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const InputWrapper = styled.input`
+  font-size: 18px;
   border: 0;
   width: 780px;
   height: 24px;

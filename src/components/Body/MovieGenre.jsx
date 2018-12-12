@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const MovieGenreWrapper = styled.p`
@@ -7,9 +7,10 @@ const MovieGenreWrapper = styled.p`
   margin: 0px;
 `;
 const MovieGenre = props => {
+  const { genres } = props;
   return (
     <MovieGenreWrapper>
-      {props.genres.map(genre => {
+      {genres.map(genre => {
         return <span key={genre}>{`${genre} `}</span>;
       })}
     </MovieGenreWrapper>
