@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const MovieGenreWrapper = styled.p`
   font-size: 10px;
-  color: dodgerblue;
+  color: black;
   margin: 0px;
 `;
 const MovieGenre = props => {

@@ -8,6 +8,7 @@ const ResultsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  justify-content: space-between;
 `;
 
 class Results extends Component {

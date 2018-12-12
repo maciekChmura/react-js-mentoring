@@ -6,6 +6,7 @@ const ResultsOptionsWrapper = styled.div`
   grid-area: 2 / 2 / 3 / 3;
   display: flex;
   justify-content: space-between;
+  background-color: #eee;
 `;
 
 const InfoWrapper = styled.div``;
@@ -15,7 +16,9 @@ const ButtonsWrapper = styled.div`
 `;
 
 const Display = styled.p`
+  font-size: 18px;
   margin: 5px;
+  padding: 5px;
 `;
 
 class ResultsOptions extends Component {

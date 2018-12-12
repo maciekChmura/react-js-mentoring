@@ -8,13 +8,14 @@ const MovieInfoWrapper = styled.div`
 `;
 
 const Title = styled.p`
-  font-size: 12px;
-  color: salmon;
+  font-size: 14px;
+  color: black;
   margin: 5px;
 `;
 
 const Year = styled.p`
-  color: sandybrown;
+  color: black;
+  font-size: 14px;
   margin: 5px;
 `;
 

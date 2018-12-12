@@ -8,15 +8,40 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const InputWrapper = styled.div``;
+const InputWrapper = styled.input`
+  border: 0;
+  width: 780px;
+  height: 24px;
+  background: #fff;
+  padding: 6px;
+  border: 1px solid grey;
+  border-radius: 4px;
+`;
 
 const ButtonsWrapper = styled.div`
+  width: 800px;
   display: flex;
+  margin-top: 10px;
 `;
 
 const Display = styled.p`
+  font-size: 18px;
   margin: 5px;
+  padding: 5px;
   color: white;
+`;
+
+const SearchButton = styled.button`
+  background-color: #dd1133;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 4px 10px 4px 10px;
+  padding: 2px 10px 2px 10px;
+  margin-left: auto;
 `;
 
 class SearchForm extends Component {
@@ -26,6 +51,12 @@ class SearchForm extends Component {
 
   handleInputChange = event => {
     this.setState({ searchValue: event.target.value });
+  };
+
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.handleFormSubmit();
+    }
   };
 
   handleFormSubmit = () => {
@@ -39,14 +70,14 @@ class SearchForm extends Component {
     return (
       <Wrapper>
         <form onSubmit={this.handleFormSubmit}>
-          <InputWrapper>
-            <input
-              id="location"
-              placeholder="movie"
-              value={searchValue}
-              onChange={this.handleInputChange}
-            />
-          </InputWrapper>
+          <InputWrapper
+            id="location"
+            placeholder="type something"
+            value={searchValue}
+            onChange={this.handleInputChange}
+            onKeyPress={this.handleKeyPress}
+          />
+
           <ButtonsWrapper>
             <Display>Search by: </Display>
             <OptionButton
@@ -59,9 +90,9 @@ class SearchForm extends Component {
               changeOption={changeSearch}
               option={searchOption}
             />
-            <button onClick={this.handleFormSubmit} type="button">
+            <SearchButton onClick={this.handleFormSubmit} type="button">
               Search
-            </button>
+            </SearchButton>
           </ButtonsWrapper>
         </form>
       </Wrapper>

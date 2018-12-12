@@ -9,7 +9,9 @@ const MovieTileWrapper = styled.div`
   height: 360px;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 6px;
 `;
 
 class MovieTile extends Component {
