@@ -8,6 +8,7 @@ import SearchForm from './Header/SearchForm';
 import Results from './Body/Results';
 import ResultsOptions from './Helper/ResultsOptions';
 import MovieDetails from './Detail/MovieDetails';
+import ErrorBoundary from './ErrorBoundary';
 
 const MainCSSGrid = styled.div`
   display: grid;
@@ -88,28 +89,30 @@ class App extends Component {
   render() {
     const { data, sortingType, searchOption, movie } = this.state;
     return (
-      <MainCSSGrid>
-        <GlobalStyle />
-        <HeaderCSSGrid>
-          <PageName />
-          <FormTitle />
-          <SearchForm
-            handleFormSubmit={this.performSearch}
-            searchOption={searchOption}
-            changeSearch={this.changeSearch}
+      <ErrorBoundary>
+        <MainCSSGrid>
+          <GlobalStyle />
+          <HeaderCSSGrid>
+            <PageName />
+            <FormTitle />
+            <SearchForm
+              handleFormSubmit={this.performSearch}
+              searchOption={searchOption}
+              changeSearch={this.changeSearch}
+            />
+          </HeaderCSSGrid>
+          <ResultsOptions
+            dataSize={data.length}
+            changeSorting={this.changeSorting}
+            sortingType={sortingType}
           />
-        </HeaderCSSGrid>
-        <ResultsOptions
-          dataSize={data.length}
-          changeSorting={this.changeSorting}
-          sortingType={sortingType}
-        />
-        {data ? <Results results={data} /> : <p>loader</p>}
-        <Footer />
-        <Detail>
-          {movie ? <MovieDetails details={movie} /> : <p>loader</p>}
-        </Detail>
-      </MainCSSGrid>
+          {data ? <Results results={data} /> : <p>loading</p>}
+          <Footer />
+          <Detail>
+            {movie ? <MovieDetails details={movie} /> : <p>loading</p>}
+          </Detail>
+        </MainCSSGrid>
+      </ErrorBoundary>
     );
   }
 }

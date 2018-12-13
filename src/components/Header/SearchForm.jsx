@@ -60,7 +60,7 @@ class SearchForm extends Component {
     }
   };
 
-  handleFormSubmit = () => {
+  handleFormSubmit = event => {
     event.preventDefault();
     this.props.handleFormSubmit(this.state.searchValue);
   };
