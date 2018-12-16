@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const H2 = styled.h2`
@@ -9,6 +8,4 @@ const H2 = styled.h2`
   height: auto;
 `;
 
-const FormTitle = () => <H2>FIND YOUR MOVIE</H2>;
-
-export default FormTitle;
+export default H2;

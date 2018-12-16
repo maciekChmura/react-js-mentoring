@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -14,15 +13,4 @@ const Button = styled.button`
   text-transform: uppercase;
 `;
 
-class OptionButton extends Component {
-  render() {
-    const { changeOption, option, text } = this.props;
-    return (
-      <Button onClick={() => changeOption(text)} option={option} text={text}>
-        {text}
-      </Button>
-    );
-  }
-}
-
-export default OptionButton;
+export default Button;

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const H1 = styled.h1`
@@ -8,6 +7,4 @@ const H1 = styled.h1`
   width: auto;
 `;
 
-const PageName = () => <H1>Netflix Roulette</H1>;
-
-export default PageName;
+export default H1;
