@@ -2,17 +2,11 @@ const BASE_URL = 'http://react-cdp-api.herokuapp.com';
 
 const joinParams = (paramsObject = {}) => {
   const paramsNames = Object.keys(paramsObject);
-  return paramsNames
-    .map(param => `${param}=${paramsObject[param]}`)
-    .reverse() // to not mutate the array
-    .concat('?') // to not mutate the array
-    .reverse() // to not mutate the array
-    .join('&');
+  return paramsNames.map(param => `${param}=${paramsObject[param]}`).join('&');
 };
 
 const requestMultiple = (api, paramsObject) => {
-  const url = `${BASE_URL}/${api}/${joinParams(paramsObject)}`;
-  console.log(url);
+  const url = `${BASE_URL}/${api}?${joinParams(paramsObject)}`;
   return fetch(url).then(r => r.json());
 };
 
@@ -32,6 +26,4 @@ export const fetchFromSearch = (searchString, sortingType, searchOption) =>
 
 export const fetchDefault = limit => requestMultiple('movies', { limit });
 
-export const fetchById = id => {
-  requestOne('movies', id);
-};
+export const fetchById = id => requestOne('movies', id);

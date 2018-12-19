@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import netflixBack from '../img/netflix_back.jpg';
 
-export const MainCSSGrid = styled.div`
+export const SearchCSSGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 900px 1fr;
-  grid-template-rows: 230px 50px auto 50px 500px;
+  grid-template-rows: 230px 50px auto 50px;
 `;
 
 export const HeaderCSSGrid = styled.div`
@@ -34,4 +34,13 @@ export const Detail = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+export const ChangePageWrapper = styled.div`
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  width: 160px;
+  height: 50px;
+  left: 50%;
 `;

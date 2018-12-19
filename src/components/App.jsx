@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { MainCSSGrid, HeaderCSSGrid, Footer, Detail } from './App.Styles';
+import {
+  SearchCSSGrid,
+  HeaderCSSGrid,
+  Footer,
+  Detail,
+  ChangePageWrapper
+} from './App.Styles';
 import PageName from './Header/PageName/PageName';
 import GlobalStyle from './GlobalStyle';
 import FormTitle from './Header/FormTitle/FormTitle';
@@ -13,13 +19,15 @@ import {
   sortingTypeForSearch,
   sortingTypeForDisplay
 } from '../utils/sortingTypeConstants';
+import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
 
 class App extends Component {
   state = {
     data: '',
     sortingType: 'release date',
     searchOption: 'title',
-    movie: ''
+    movie: '',
+    pageType: 'search'
   };
 
   performSearch = searchString => {
@@ -41,40 +49,51 @@ class App extends Component {
   };
 
   changeSorting = data => {
-    this.setState({ sortingType: data });
+    this.setState(state => ({ sortingType: data }));
   };
 
   changeSearch = data => {
     event.preventDefault();
-    this.setState({ searchOption: data });
+    this.setState(state => ({ searchOption: data }));
+  };
+
+  changePage = () => {
+    const newType = this.state.pageType === 'search' ? 'detail' : 'search';
+    this.setState(state => ({ pageType: newType }));
   };
 
   render() {
-    const { data, sortingType, searchOption, movie } = this.state;
+    const { data, sortingType, searchOption, movie, pageType } = this.state;
     return (
       <ErrorBoundary>
-        <MainCSSGrid>
-          <GlobalStyle />
-          <HeaderCSSGrid>
-            <PageName />
-            <FormTitle />
-            <SearchForm
-              handleFormSubmit={this.performSearch}
-              searchOption={searchOption}
-              changeSearch={this.changeSearch}
+        <GlobalStyle />
+        <ChangePageWrapper>
+          <ChangePageButton changePage={this.changePage} />
+        </ChangePageWrapper>
+        {pageType === 'search' ? (
+          <SearchCSSGrid>
+            <HeaderCSSGrid>
+              <PageName />
+              <FormTitle />
+              <SearchForm
+                handleFormSubmit={this.performSearch}
+                searchOption={searchOption}
+                changeSearch={this.changeSearch}
+              />
+            </HeaderCSSGrid>
+            <ResultsOptions
+              dataSize={data.length}
+              changeSorting={this.changeSorting}
+              sortingType={sortingTypeForDisplay[sortingType]}
             />
-          </HeaderCSSGrid>
-          <ResultsOptions
-            dataSize={data.length}
-            changeSorting={this.changeSorting}
-            sortingType={sortingTypeForDisplay[sortingType]}
-          />
-          {data ? <Results results={data} /> : <p>loading</p>}
-          <Footer />
+            {data ? <Results results={data} /> : <p>loading</p>}
+            <Footer />
+          </SearchCSSGrid>
+        ) : (
           <Detail>
             {movie ? <MovieDetails details={movie} /> : <p>loading</p>}
           </Detail>
-        </MainCSSGrid>
+        )}
       </ErrorBoundary>
     );
   }
