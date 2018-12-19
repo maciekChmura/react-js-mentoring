@@ -11,16 +11,14 @@ const ResultsOptions = ({ dataSize, changeSorting, sortingType }) => (
     <Display>{dataSize} movies found</Display>
     <ButtonsWrapper>
       <Display>Sort by:</Display>
-      <OptionButton
-        text="release date"
-        changeOption={changeSorting}
-        option={sortingType}
-      />
-      <OptionButton
-        text="rating"
-        changeOption={changeSorting}
-        option={sortingType}
-      />
+      {['release date', 'rating'].map(title => (
+        <OptionButton
+          text={title}
+          changeOption={changeSorting}
+          option={sortingType}
+          key={title}
+        />
+      ))}
     </ButtonsWrapper>
   </ResultsOptionsWrapper>
 );

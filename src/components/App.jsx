@@ -28,21 +28,16 @@ class App extends Component {
       searchString,
       sortingTypeForSearch[sortingType],
       searchOption
-    )
-      .then(response => response.json())
-      // .then(data => this.setState({ data: data.data }));
-      .then(data => this.setState(state => ({ data: data.data })));
+    ).then(data => this.setState(state => ({ data: data.data })));
   };
 
   componentDidMount = () => {
-    fetchDefault(12)
-      .then(response => response.json())
-      .then(data => this.setState(state => ({ data: data.data })));
+    fetchDefault(12).then(data =>
+      this.setState(state => ({ data: data.data }))
+    );
 
     // temporary fetch, just to present movie details
-    fetchById(12)
-      .then(response => response.json())
-      .then(data => this.setState(state => ({ movie: data })));
+    fetchById(12).then(data => this.setState(state => ({ movie: data })));
   };
 
   changeSorting = data => {

@@ -1,10 +1,37 @@
+const BASE_URL = 'http://react-cdp-api.herokuapp.com';
+
+const joinParams = (paramsObject = {}) => {
+  const paramsNames = Object.keys(paramsObject);
+  return paramsNames
+    .map(param => `${param}=${paramsObject[param]}`)
+    .reverse() // to not mutate the array
+    .concat('?') // to not mutate the array
+    .reverse() // to not mutate the array
+    .join('&');
+};
+
+const requestMultiple = (api, paramsObject) => {
+  const url = `${BASE_URL}/${api}/${joinParams(paramsObject)}`;
+  console.log(url);
+  return fetch(url).then(r => r.json());
+};
+
+const requestOne = (api, id) => {
+  const url = `${BASE_URL}/${api}/${id}`;
+  return fetch(url).then(r => r.json());
+};
+
 export const fetchFromSearch = (searchString, sortingType, searchOption) =>
-  fetch(
-    `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortingType}&sortOrder=desc&search=${searchString}&searchBy=${searchOption}&limit=12`
-  );
+  requestMultiple('movies', {
+    sortBy: sortingType,
+    sortOrder: 'desc',
+    search: searchString,
+    searchBy: searchOption,
+    limit: 12
+  });
 
-export const fetchDefault = limit =>
-  fetch(`http://react-cdp-api.herokuapp.com/movies?limit=${limit}`);
+export const fetchDefault = limit => requestMultiple('movies', { limit });
 
-export const fetchById = id =>
-  fetch(`http://react-cdp-api.herokuapp.com/movies/${id}`);
+export const fetchById = id => {
+  requestOne('movies', id);
+};

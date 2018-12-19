@@ -43,16 +43,14 @@ class SearchForm extends Component {
 
           <ButtonsWrapper>
             <Display>Search by: </Display>
-            <OptionButton
-              text="title"
-              changeOption={changeSearch}
-              option={searchOption}
-            />
-            <OptionButton
-              text="genres"
-              changeOption={changeSearch}
-              option={searchOption}
-            />
+            {['title', 'genres'].map(title => (
+              <OptionButton
+                text={title}
+                changeOption={changeSearch}
+                option={searchOption}
+                key={title}
+              />
+            ))}
             <SearchButton onClick={this.handleFormSubmit} type="button">
               Search
             </SearchButton>
