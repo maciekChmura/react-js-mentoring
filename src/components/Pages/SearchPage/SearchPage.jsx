@@ -42,6 +42,10 @@ class SearchPage extends Component {
     this.setState(state => ({ searchOption: data }));
   };
 
+  add(x) {
+    return x + 2;
+  }
+
   render() {
     const { data, sortingType, searchOption } = this.state;
 

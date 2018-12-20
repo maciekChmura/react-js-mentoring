@@ -7,12 +7,12 @@ const joinParams = (paramsObject = {}) => {
 
 const requestMultiple = (api, paramsObject) => {
   const url = `${BASE_URL}/${api}?${joinParams(paramsObject)}`;
-  return fetch(url).then(r => r.json());
+  return window.fetch(url).then(r => r.json());
 };
 
 const requestOne = (api, id) => {
   const url = `${BASE_URL}/${api}/${id}`;
-  return fetch(url).then(r => r.json());
+  return window.fetch(url).then(r => r.json());
 };
 
 export const fetchFromSearch = (searchString, sortingType, searchOption) =>
