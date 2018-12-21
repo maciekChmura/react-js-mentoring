@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieInfo
+    release_date="2003-05-30-"
+    title="Finding Nemo"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ForwardRef>
+          Finding Nemo
+        </ForwardRef>,
+        <ForwardRef>
+          2003
+        </ForwardRef>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Finding Nemo",
+        },
+        "ref": null,
+        "rendered": "Finding Nemo",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "MovieInfoStyles__Title-sc-16dmz1l-1",
+            "isStatic": true,
+            "rules": Array [
+              "font-size:14px;color:black;margin:5px;",
+            ],
+          },
+          "displayName": "MovieInfoStyles__Title",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "MovieInfoStyles__Title-sc-16dmz1l-1",
+          "target": "p",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "2003",
+        },
+        "ref": null,
+        "rendered": "2003",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "MovieInfoStyles__Year-sc-16dmz1l-2",
+            "isStatic": true,
+            "rules": Array [
+              "color:black;font-size:14px;margin:5px;",
+            ],
+          },
+          "displayName": "MovieInfoStyles__Year",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "MovieInfoStyles__Year-sc-16dmz1l-2",
+          "target": "p",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "MovieInfoStyles__MovieInfoWrapper-sc-16dmz1l-0",
+        "isStatic": true,
+        "rules": Array [
+          "display:flex;flex-direction:row;justify-content:space-between;",
+        ],
+      },
+      "displayName": "MovieInfoStyles__MovieInfoWrapper",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "MovieInfoStyles__MovieInfoWrapper-sc-16dmz1l-0",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ForwardRef>
+            Finding Nemo
+          </ForwardRef>,
+          <ForwardRef>
+            2003
+          </ForwardRef>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Finding Nemo",
+          },
+          "ref": null,
+          "rendered": "Finding Nemo",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "MovieInfoStyles__Title-sc-16dmz1l-1",
+              "isStatic": true,
+              "rules": Array [
+                "font-size:14px;color:black;margin:5px;",
+              ],
+            },
+            "displayName": "MovieInfoStyles__Title",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "MovieInfoStyles__Title-sc-16dmz1l-1",
+            "target": "p",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "2003",
+          },
+          "ref": null,
+          "rendered": "2003",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "MovieInfoStyles__Year-sc-16dmz1l-2",
+              "isStatic": true,
+              "rules": Array [
+                "color:black;font-size:14px;margin:5px;",
+              ],
+            },
+            "displayName": "MovieInfoStyles__Year",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "MovieInfoStyles__Year-sc-16dmz1l-2",
+            "target": "p",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "MovieInfoStyles__MovieInfoWrapper-sc-16dmz1l-0",
+          "isStatic": true,
+          "rules": Array [
+            "display:flex;flex-direction:row;justify-content:space-between;",
+          ],
+        },
+        "displayName": "MovieInfoStyles__MovieInfoWrapper",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "MovieInfoStyles__MovieInfoWrapper-sc-16dmz1l-0",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTile should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieTile
+    data={
+      Object {
+        "genres": Array [
+          "Action",
+          "Adventure",
+          "Science Fiction",
+        ],
+        "poster_path": "https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg",
+        "release_date": "2013-04-18",
+        "title": "Iron Man 3",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <MoviePoster
+          posterImage="https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg"
+        />,
+        <MovieInfo
+          release_date="2013-04-18"
+          title="Iron Man 3"
+        />,
+        <MovieGenre
+          genres={
+            Array [
+              "Action",
+              "Adventure",
+              "Science Fiction",
+            ]
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "posterImage": "https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "release_date": "2013-04-18",
+          "title": "Iron Man 3",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "genres": Array [
+            "Action",
+            "Adventure",
+            "Science Fiction",
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "MovieTileStyles__MovieTileWrapper-sc-1cuvjis-0",
+        "isStatic": true,
+        "rules": Array [
+          "width:200px;height:380px;display:flex;flex-direction:column;margin-top:10px;background-color:#fff;border-radius:6px;",
+        ],
+      },
+      "displayName": "MovieTileStyles__MovieTileWrapper",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "MovieTileStyles__MovieTileWrapper-sc-1cuvjis-0",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <MoviePoster
+            posterImage="https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg"
+          />,
+          <MovieInfo
+            release_date="2013-04-18"
+            title="Iron Man 3"
+          />,
+          <MovieGenre
+            genres={
+              Array [
+                "Action",
+                "Adventure",
+                "Science Fiction",
+              ]
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "posterImage": "https://image.tmdb.org/t/p/w500/1Ilv6ryHUv6rt9zIsbSEJUmmbEi.jpg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "release_date": "2013-04-18",
+            "title": "Iron Man 3",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "genres": Array [
+              "Action",
+              "Adventure",
+              "Science Fiction",
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "MovieTileStyles__MovieTileWrapper-sc-1cuvjis-0",
+          "isStatic": true,
+          "rules": Array [
+            "width:200px;height:380px;display:flex;flex-direction:column;margin-top:10px;background-color:#fff;border-radius:6px;",
+          ],
+        },
+        "displayName": "MovieTileStyles__MovieTileWrapper",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "MovieTileStyles__MovieTileWrapper-sc-1cuvjis-0",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

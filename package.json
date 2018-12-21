@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev --open --progress --config webpack.config.js",
     "build": "webpack --env.prod -p --config webpack.config.js",
-    "test": "jest --coverage",
+    "test": "jest --coverage --watchAll --verbose",
     "updateSnaps": "jest --updateSnapshot"
   },
   "jest": {
