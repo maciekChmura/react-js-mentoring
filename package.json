@@ -6,13 +6,15 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev --open --progress --config webpack.config.js",
     "build": "webpack --env.prod -p --config webpack.config.js",
-    "test": "jest"
+    "test": "jest --coverage",
+    "updateSnaps": "jest --updateSnapshot"
   },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/src/enzyme.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,8 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
@@ -56,6 +60,7 @@
   },
   "dependencies": {
     "jest-styled-components": "^6.3.1",
+    "node-fetch": "^2.3.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.1",

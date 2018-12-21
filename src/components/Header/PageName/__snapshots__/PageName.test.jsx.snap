@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageName renders 1`] = `
+<h1
+  className="PageNameStyles__H1-sc-1qqo73k-0 fMwOSL"
+>
+  Netflix Roulette
+</h1>
+`;

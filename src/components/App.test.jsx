@@ -4,6 +4,6 @@ import App from './App';
 
 test('App renders', () => {
   const component = renderer.create(<App />);
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

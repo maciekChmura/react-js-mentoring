@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailPage renders 1`] = `
+<div
+  className="DetailPageStyles__Detail-sc-4qdnn8-0 kinPBU"
+>
+  <p>
+    loading
+  </p>
+</div>
+`;

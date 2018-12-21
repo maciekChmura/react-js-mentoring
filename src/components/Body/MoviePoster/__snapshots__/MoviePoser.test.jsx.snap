@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviePoster renders 1`] = `
+<div
+  className="MoviePosterStyles__PosterWrapper-sc-2d9g7n-0 fjhBTm"
+>
+  <img
+    className="MoviePosterStyles__Img-sc-2d9g7n-1 fjLIup"
+  />
+</div>
+`;

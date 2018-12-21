@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm renders 1`] = `
+<div
+  className="SearchFormStyles__Wrapper-emg76u-0 gbhWJX"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="SearchFormStyles__InputWrapper-emg76u-1 iBOVkC"
+      id="location"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="type something"
+      value=""
+    />
+    <div
+      className="SearchFormStyles__ButtonsWrapper-emg76u-2 ideRDc"
+    >
+      <p
+        className="SearchFormStyles__Display-emg76u-3 iyaqPI"
+      >
+        Search by: 
+      </p>
+      <button
+        className="OptionButtonStyles__Button-sc-1yyses4-0 hkNaKA"
+        onClick={[Function]}
+      >
+        title
+      </button>
+      <button
+        className="OptionButtonStyles__Button-sc-1yyses4-0 hkNaKA"
+        onClick={[Function]}
+      >
+        genres
+      </button>
+      <button
+        className="SearchFormStyles__SearchButton-emg76u-4 erPeEk"
+        onClick={[Function]}
+        type="button"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+`;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionButton renders 1`] = `
+<button
+  className="OptionButtonStyles__Button-sc-1yyses4-0 eKWgln"
+  onClick={[Function]}
+/>
+`;
