@@ -1,100 +1,321 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchPage renders 1`] = `
-<div
-  className="SearchPageStyles__SearchCSSGrid-sc-1ueu3tk-0 bsBxtI"
->
-  <div
-    className="SearchPageStyles__HeaderCSSGrid-sc-1ueu3tk-1 dKHhZy"
-  >
-    <h1
-      className="PageNameStyles__H1-sc-1qqo73k-0 fMwOSL"
-    >
-      Netflix Roulette
-    </h1>
-    <h2
-      className="FormTitleStyles__H2-sc-10gmsuy-0 koCUjc"
-    >
-      FIND YOUR MOVIE
-    </h2>
-    <div
-      className="SearchFormStyles__Wrapper-emg76u-0 gbhWJX"
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <input
-          className="SearchFormStyles__InputWrapper-emg76u-1 iBOVkC"
-          id="location"
-          onChange={[Function]}
-          onKeyPress={[Function]}
-          placeholder="type something"
-          value=""
-        />
-        <div
-          className="SearchFormStyles__ButtonsWrapper-emg76u-2 ideRDc"
-        >
-          <p
-            className="SearchFormStyles__Display-emg76u-3 iyaqPI"
-          >
-            Search by: 
-          </p>
-          <button
-            className="OptionButtonStyles__Button-sc-1yyses4-0 eKWgln"
-            onClick={[Function]}
-          >
-            title
-          </button>
-          <button
-            className="OptionButtonStyles__Button-sc-1yyses4-0 hkNaKA"
-            onClick={[Function]}
-          >
-            genres
-          </button>
-          <button
-            className="SearchFormStyles__SearchButton-emg76u-4 erPeEk"
-            onClick={[Function]}
-            type="button"
-          >
-            Search
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div
-    className="ResultsOptionsStyles__ResultsOptionsWrapper-qi5qz4-0 bcyhbG"
-  >
-    <p
-      className="ResultsOptionsStyles__Display-qi5qz4-2 gCbovo"
-    >
-      0
-       movies found
-    </p>
-    <div
-      className="ResultsOptionsStyles__ButtonsWrapper-qi5qz4-1 cVcvWT"
-    >
-      <p
-        className="ResultsOptionsStyles__Display-qi5qz4-2 gCbovo"
-      >
-        Sort by:
-      </p>
-      <button
-        className="OptionButtonStyles__Button-sc-1yyses4-0 eKWgln"
-        onClick={[Function]}
-      >
-        release date
-      </button>
-      <button
-        className="OptionButtonStyles__Button-sc-1yyses4-0 hkNaKA"
-        onClick={[Function]}
-      >
-        rating
-      </button>
-    </div>
-  </div>
-  <p>
-    loading
-  </p>
-</div>
+exports[`SearchPage should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchPage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ForwardRef>
+          <PageName />
+          <FormTitle />
+          <SearchForm
+            changeSearch={[Function]}
+            handleFormSubmit={[Function]}
+            searchOption="title"
+          />
+        </ForwardRef>,
+        <ResultsOptions
+          changeSorting={[Function]}
+          dataSize={0}
+          sortingType="release date"
+        />,
+        <p>
+          loading
+        </p>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <PageName />,
+            <FormTitle />,
+            <SearchForm
+              changeSearch={[Function]}
+              handleFormSubmit={[Function]}
+              searchOption="title"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "changeSearch": [Function],
+              "handleFormSubmit": [Function],
+              "searchOption": "title",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "SearchPageStyles__HeaderCSSGrid-sc-1ueu3tk-1",
+            "isStatic": true,
+            "rules": Array [
+              "grid-area:2 / 3 / 1 / 2;display:grid;grid-template-columns:50px 800px 50px;grid-template-rows:80px 50px 100px;background-image:url(",
+              "test-file-stub",
+              ");background-position:center;background-repeat:no-repeat;background-size:cover;",
+            ],
+          },
+          "displayName": "SearchPageStyles__HeaderCSSGrid",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "SearchPageStyles__HeaderCSSGrid-sc-1ueu3tk-1",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "changeSorting": [Function],
+          "dataSize": 0,
+          "sortingType": "release date",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "loading",
+        },
+        "ref": null,
+        "rendered": "loading",
+        "type": "p",
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "SearchPageStyles__SearchCSSGrid-sc-1ueu3tk-0",
+        "isStatic": true,
+        "rules": Array [
+          "display:grid;grid-template-columns:1fr 900px 1fr;grid-template-rows:230px 50px auto;",
+        ],
+      },
+      "displayName": "SearchPageStyles__SearchCSSGrid",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "SearchPageStyles__SearchCSSGrid-sc-1ueu3tk-0",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ForwardRef>
+            <PageName />
+            <FormTitle />
+            <SearchForm
+              changeSearch={[Function]}
+              handleFormSubmit={[Function]}
+              searchOption="title"
+            />
+          </ForwardRef>,
+          <ResultsOptions
+            changeSorting={[Function]}
+            dataSize={0}
+            sortingType="release date"
+          />,
+          <p>
+            loading
+          </p>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <PageName />,
+              <FormTitle />,
+              <SearchForm
+                changeSearch={[Function]}
+                handleFormSubmit={[Function]}
+                searchOption="title"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "changeSearch": [Function],
+                "handleFormSubmit": [Function],
+                "searchOption": "title",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "SearchPageStyles__HeaderCSSGrid-sc-1ueu3tk-1",
+              "isStatic": true,
+              "rules": Array [
+                "grid-area:2 / 3 / 1 / 2;display:grid;grid-template-columns:50px 800px 50px;grid-template-rows:80px 50px 100px;background-image:url(",
+                "test-file-stub",
+                ");background-position:center;background-repeat:no-repeat;background-size:cover;",
+              ],
+            },
+            "displayName": "SearchPageStyles__HeaderCSSGrid",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "SearchPageStyles__HeaderCSSGrid-sc-1ueu3tk-1",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "changeSorting": [Function],
+            "dataSize": 0,
+            "sortingType": "release date",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "loading",
+          },
+          "ref": null,
+          "rendered": "loading",
+          "type": "p",
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "SearchPageStyles__SearchCSSGrid-sc-1ueu3tk-0",
+          "isStatic": true,
+          "rules": Array [
+            "display:grid;grid-template-columns:1fr 900px 1fr;grid-template-rows:230px 50px auto;",
+          ],
+        },
+        "displayName": "SearchPageStyles__SearchCSSGrid",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "SearchPageStyles__SearchCSSGrid-sc-1ueu3tk-0",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;

@@ -1,9 +1,37 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import SearchForm from './SearchForm';
 
-test('SearchForm renders', () => {
-  const component = renderer.create(<SearchForm />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe('SearchForm', () => {
+  it('should render correctly', () => {
+    const component = shallow(<SearchForm />);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('InputWrapper onChange updates state', () => {
+    const component = shallow(<SearchForm />);
+    const eventData = {
+      target: {
+        value: 'test'
+      }
+    };
+    component.find('InputWrapper').prop('onChange')(eventData);
+    expect(component.state('searchValue')).toEqual('test');
+  });
+
+  it('InputWrapper onKeyPress calls handleFormSubmit', () => {
+    const component = shallow(<SearchForm />);
+    const eventData = {
+      key: 'Enter'
+    };
+    // component.find('InputWrapper').prop('onKeyPress')(eventData);
+    // expect(mockFunc.mock.calls.length).toBeGreaterThan(0);
+
+    const handleFormSubmitMock = jest.fn();
+    component.instance().handleFormSubmit = handleFormSubmitMock;
+    component.update();
+    component.instance().handleKeyPress(eventData);
+    expect(handleFormSubmitMock).toBeCalled();
+  });
 });
