@@ -19,9 +19,7 @@ class SearchPage extends Component {
   };
 
   componentDidMount = () => {
-    fetchDefault(12).then(data =>
-      this.setState(state => ({ data: data.data }))
-    );
+    fetchDefault(12).then(data => this.setState({ data: data.data }));
   };
 
   changeSorting = data => {
@@ -38,7 +36,6 @@ class SearchPage extends Component {
   };
 
   changeSearch = data => {
-    event.preventDefault();
     this.setState(state => ({ searchOption: data }));
   };
 
@@ -49,7 +46,7 @@ class SearchPage extends Component {
       <SearchCSSGrid>
         <HeaderCSSGrid>
           <PageName />
-          <FormTitle />
+          <FormTitle title="FIND YOUR MOVIE" />
           <SearchForm
             handleFormSubmit={this.performSearch}
             searchOption={searchOption}

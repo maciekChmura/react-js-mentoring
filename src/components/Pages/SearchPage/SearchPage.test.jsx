@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import SearchPage from './SearchPage';
 
@@ -28,4 +28,17 @@ describe('SearchPage', () => {
     component.find('ResultsOptions').prop('changeSorting')('sortingOne');
     expect(component.state('sortingType')).toEqual('sortingOne');
   });
+
+  it('changeSearch changes state when called', () => {
+    const component = shallow(<SearchPage />);
+
+    component.find('SearchForm').prop('changeSearch')('searchingOne');
+    expect(component.state('searchOption')).toEqual('searchingOne');
+  });
+
+  // it('should set state on mount', () => {
+  //   const component = mount(<SearchPage />);
+
+  //   expect(component.setState('state')).toBeCalled();
+  // });
 });

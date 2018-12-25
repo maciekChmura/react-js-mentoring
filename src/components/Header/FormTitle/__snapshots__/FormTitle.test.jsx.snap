@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DetailPage should render correctly 1`] = `
+exports[`FormTitle should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DetailPage />,
+  Symbol(enzyme.__unrendered__): <FormTitle />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,39 +17,25 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": <p>
-        loading
-      </p>,
+      "children": undefined,
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": "loading",
-      },
-      "ref": null,
-      "rendered": "loading",
-      "type": "p",
-    },
+    "rendered": null,
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "DetailPageStyles__Detail-sc-4qdnn8-0",
+        "componentId": "FormTitleStyles__H2-sc-10gmsuy-0",
         "isStatic": true,
         "rules": Array [
-          "width:900px;margin:auto;padding:20px;background-color:black;display:flex;flex-direction:row;justify-content:center;align-items:center;background-image:url(",
-          "test-file-stub",
-          ");background-position:center;background-repeat:no-repeat;background-size:cover;",
+          "grid-area:2 / 2 / 3 / 3;font-size:18px;color:white;width:auto;height:auto;",
         ],
       },
-      "displayName": "DetailPageStyles__Detail",
+      "displayName": "H2",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "DetailPageStyles__Detail-sc-4qdnn8-0",
-      "target": "div",
+      "styledComponentId": "FormTitleStyles__H2-sc-10gmsuy-0",
+      "target": "h2",
       "toString": [Function],
       "warnTooManyClasses": [Function],
       "withComponent": [Function],
@@ -61,39 +47,25 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": <p>
-          loading
-        </p>,
+        "children": undefined,
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "loading",
-        },
-        "ref": null,
-        "rendered": "loading",
-        "type": "p",
-      },
+      "rendered": null,
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "DetailPageStyles__Detail-sc-4qdnn8-0",
+          "componentId": "FormTitleStyles__H2-sc-10gmsuy-0",
           "isStatic": true,
           "rules": Array [
-            "width:900px;margin:auto;padding:20px;background-color:black;display:flex;flex-direction:row;justify-content:center;align-items:center;background-image:url(",
-            "test-file-stub",
-            ");background-position:center;background-repeat:no-repeat;background-size:cover;",
+            "grid-area:2 / 2 / 3 / 3;font-size:18px;color:white;width:auto;height:auto;",
           ],
         },
-        "displayName": "DetailPageStyles__Detail",
+        "displayName": "H2",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "DetailPageStyles__Detail-sc-4qdnn8-0",
-        "target": "div",
+        "styledComponentId": "FormTitleStyles__H2-sc-10gmsuy-0",
+        "target": "h2",
         "toString": [Function],
         "warnTooManyClasses": [Function],
         "withComponent": [Function],

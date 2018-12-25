@@ -25,8 +25,6 @@ describe('SearchForm', () => {
     const eventData = {
       key: 'Enter'
     };
-    // component.find('InputWrapper').prop('onKeyPress')(eventData);
-    // expect(mockFunc.mock.calls.length).toBeGreaterThan(0);
 
     const handleFormSubmitMock = jest.fn();
     component.instance().handleFormSubmit = handleFormSubmitMock;

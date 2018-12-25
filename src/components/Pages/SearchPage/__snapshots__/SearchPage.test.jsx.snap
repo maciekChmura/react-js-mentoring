@@ -20,7 +20,9 @@ ShallowWrapper {
       "children": Array [
         <ForwardRef>
           <PageName />
-          <FormTitle />
+          <FormTitle
+            title="FIND YOUR MOVIE"
+          />
           <SearchForm
             changeSearch={[Function]}
             handleFormSubmit={[Function]}
@@ -46,7 +48,9 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <PageName />,
-            <FormTitle />,
+            <FormTitle
+              title="FIND YOUR MOVIE"
+            />,
             <SearchForm
               changeSearch={[Function]}
               handleFormSubmit={[Function]}
@@ -69,7 +73,9 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "function",
-            "props": Object {},
+            "props": Object {
+              "title": "FIND YOUR MOVIE",
+            },
             "ref": null,
             "rendered": null,
             "type": [Function],
@@ -164,7 +170,9 @@ ShallowWrapper {
         "children": Array [
           <ForwardRef>
             <PageName />
-            <FormTitle />
+            <FormTitle
+              title="FIND YOUR MOVIE"
+            />
             <SearchForm
               changeSearch={[Function]}
               handleFormSubmit={[Function]}
@@ -190,7 +198,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <PageName />,
-              <FormTitle />,
+              <FormTitle
+                title="FIND YOUR MOVIE"
+              />,
               <SearchForm
                 changeSearch={[Function]}
                 handleFormSubmit={[Function]}
@@ -213,7 +223,9 @@ ShallowWrapper {
               "instance": null,
               "key": undefined,
               "nodeType": "function",
-              "props": Object {},
+              "props": Object {
+                "title": "FIND YOUR MOVIE",
+              },
               "ref": null,
               "rendered": null,
               "type": [Function],

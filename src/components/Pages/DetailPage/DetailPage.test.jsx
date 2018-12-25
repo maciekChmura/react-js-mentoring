@@ -1,9 +1,19 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import DetailPage from './DetailPage';
 
-test('DetailPage renders', () => {
-  const component = renderer.create(<DetailPage />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe('DetailPage', () => {
+  it('should render correctly', () => {
+    const component = shallow(<DetailPage />);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render MovieDetails when state.movie has data', () => {
+    const component = shallow(<DetailPage />);
+    component.setState({ movie: '' });
+    expect(component.find('MovieDetails')).toHaveLength(0);
+    component.setState({ movie: 'test' });
+    expect(component.find('MovieDetails')).toHaveLength(1);
+  });
 });

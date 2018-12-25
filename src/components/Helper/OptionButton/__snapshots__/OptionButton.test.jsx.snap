@@ -1,8 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OptionButton renders 1`] = `
-<button
-  className="OptionButtonStyles__Button-sc-1yyses4-0 eKWgln"
-  onClick={[Function]}
-/>
+exports[`OptionButton should render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <OptionButton />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": undefined,
+      "onClick": [Function],
+      "option": undefined,
+      "text": undefined,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "OptionButtonStyles__Button-sc-1yyses4-0",
+        "isStatic": false,
+        "rules": Array [
+          "color:white;height:32px;margin:4px 10px 4px 10px;padding:2px 10px 2px 10px;font-size:14px;background-color:",
+          [Function],
+          ";border:0;border-radius:4px;text-transform:uppercase;",
+        ],
+      },
+      "displayName": "Button",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "OptionButtonStyles__Button-sc-1yyses4-0",
+      "target": "button",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": undefined,
+        "onClick": [Function],
+        "option": undefined,
+        "text": undefined,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "OptionButtonStyles__Button-sc-1yyses4-0",
+          "isStatic": false,
+          "rules": Array [
+            "color:white;height:32px;margin:4px 10px 4px 10px;padding:2px 10px 2px 10px;font-size:14px;background-color:",
+            [Function],
+            ";border:0;border-radius:4px;text-transform:uppercase;",
+          ],
+        },
+        "displayName": "Button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "OptionButtonStyles__Button-sc-1yyses4-0",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;
