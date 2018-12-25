@@ -34,7 +34,7 @@ class SearchForm extends Component {
       <Wrapper>
         <form onSubmit={this.handleFormSubmit}>
           <InputWrapper
-            id="location"
+            id="searchInput"
             placeholder="type something"
             value={searchValue}
             onChange={this.handleInputChange}
