@@ -18,6 +18,9 @@
     "coveragePathIgnorePatterns": [
       "ErrorBoundary.jsx"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/cypress"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/enzyme.js"
   },
   "repository": {

@@ -10,7 +10,7 @@ describe('SearchPage', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render looading spinner when no data is in state', () => {
+  it('should render loading spinner when no data is in state', () => {
     const component = shallow(<SearchPage />);
     expect(component.find('Results')).toHaveLength(0);
   });

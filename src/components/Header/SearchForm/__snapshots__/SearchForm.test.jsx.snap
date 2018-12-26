@@ -21,7 +21,7 @@ ShallowWrapper {
         onSubmit={[Function]}
       >
         <ForwardRef
-          id="location"
+          id="searchInput"
           onChange={[Function]}
           onKeyPress={[Function]}
           placeholder="type something"
@@ -54,7 +54,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ForwardRef
-            id="location"
+            id="searchInput"
             onChange={[Function]}
             onKeyPress={[Function]}
             placeholder="type something"
@@ -87,7 +87,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "id": "location",
+            "id": "searchInput",
             "onChange": [Function],
             "onKeyPress": [Function],
             "placeholder": "type something",
@@ -282,7 +282,7 @@ ShallowWrapper {
           onSubmit={[Function]}
         >
           <ForwardRef
-            id="location"
+            id="searchInput"
             onChange={[Function]}
             onKeyPress={[Function]}
             placeholder="type something"
@@ -315,7 +315,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <ForwardRef
-              id="location"
+              id="searchInput"
               onChange={[Function]}
               onKeyPress={[Function]}
               placeholder="type something"
@@ -348,7 +348,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "id": "location",
+              "id": "searchInput",
               "onChange": [Function],
               "onKeyPress": [Function],
               "placeholder": "type something",
