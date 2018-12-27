@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
+import { connect } from 'react-redux';
 import { fetchFromSearch, fetchDefault } from '../../../utils/dataLoaders';
+import { getData } from '../../../redux/actions';
 import {
   sortingTypeForSearch,
   sortingTypeForDisplay
@@ -11,17 +12,19 @@ import SearchForm from '../../Header/SearchForm/SearchForm';
 import Results from '../../Body/Results/Results';
 import ResultsOptions from '../../Helper/ResultsOptions/ResultsOptions';
 
-class SearchPage extends Component {
+import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
+
+const mapStateToProps = state => ({ results: state.results });
+
+class SearchPageRedux extends Component {
   state = {
-    data: '',
+    // data: '',
     sortingType: 'release date',
     searchOption: 'title'
   };
 
   componentDidMount = () => {
-    fetchDefault(12).then(data =>
-      this.setState(state => ({ data: data.data }))
-    );
+    this.props.getData();
   };
 
   changeSorting = data => {
@@ -57,14 +60,23 @@ class SearchPage extends Component {
           />
         </HeaderCSSGrid>
         <ResultsOptions
-          dataSize={data.length}
+          dataSize={this.props.results.length}
           changeSorting={this.changeSorting}
           sortingType={sortingTypeForDisplay[sortingType]}
         />
-        {data ? <Results results={data} /> : <p>loading</p>}
+        {this.props.results ? (
+          <Results results={this.props.results} />
+        ) : (
+          <p>loading</p>
+        )}
       </SearchCSSGrid>
     );
   }
 }
+
+const SearchPage = connect(
+  mapStateToProps,
+  { getData }
+)(SearchPageRedux);
 
 export default SearchPage;

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { ChangePageWrapper } from './App.Styles';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 import GlobalStyle from './GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
 import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import DetailPage from './Pages/DetailPage/DetailPage';
+
+import { ChangePageWrapper } from './App.Styles';
 
 class App extends Component {
   state = {
@@ -20,13 +23,15 @@ class App extends Component {
   render() {
     const { pageType } = this.state;
     return (
-      <ErrorBoundary>
-        <GlobalStyle />
-        {pageType === 'search' ? <SearchPage /> : <DetailPage />}
-        <ChangePageWrapper>
-          <ChangePageButton changePage={this.changePage} />
-        </ChangePageWrapper>
-      </ErrorBoundary>
+      <Provider store={store}>
+        <ErrorBoundary>
+          <GlobalStyle />
+          {pageType === 'search' ? <SearchPage /> : <DetailPage />}
+          <ChangePageWrapper>
+            <ChangePageButton changePage={this.changePage} />
+          </ChangePageWrapper>
+        </ErrorBoundary>
+      </Provider>
     );
   }
 }
