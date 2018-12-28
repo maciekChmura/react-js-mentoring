@@ -13,23 +13,19 @@ import ResultsOptions from '../../Helper/ResultsOptions/ResultsOptions';
 
 import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
 
-const mapStateToProps = state => ({ movies: state.movies });
+const mapStateToProps = state => ({
+  movies: state.movies,
+  sortingType: state.sortingType,
+  searchOption: state.searchOption
+});
 
 class SearchPageRedux extends Component {
-  state = {
-    sortingType: 'release date'
-  };
-
   componentDidMount = () => {
     this.props.getDefaultData(12);
   };
 
-  changeSorting = data => {
-    this.setState(state => ({ sortingType: data }));
-  };
-
   performSearch = searchString => {
-    const { sortingType, searchOption } = this.state;
+    const { sortingType, searchOption } = this.props;
     this.props.getSearchData(
       searchString,
       sortingTypeForSearch[sortingType],
@@ -38,8 +34,7 @@ class SearchPageRedux extends Component {
   };
 
   render() {
-    const { sortingType } = this.state;
-    const { movies } = this.props;
+    const { movies, sortingType } = this.props;
     return (
       <SearchCSSGrid>
         <HeaderCSSGrid>
@@ -47,11 +42,7 @@ class SearchPageRedux extends Component {
           <FormTitle />
           <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
-        <ResultsOptions
-          dataSize={movies.length}
-          changeSorting={this.changeSorting}
-          sortingType={sortingTypeForDisplay[sortingType]}
-        />
+        <ResultsOptions sortingType={sortingTypeForDisplay[sortingType]} />
         {movies ? <Results results={movies} /> : <p>loading</p>}
       </SearchCSSGrid>
     );

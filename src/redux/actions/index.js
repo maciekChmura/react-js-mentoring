@@ -1,7 +1,8 @@
 import {
   FETCH_DEFAULT,
   FETCH_FROM_SEARCH,
-  CHANGE_SEARCH
+  CHANGE_SEARCH,
+  CHANGE_SORTING
 } from '../constants/action-types';
 import { fetchFromSearch, fetchDefault } from '../../utils/dataLoaders';
 
@@ -25,4 +26,8 @@ export function getSearchData(searchString, sortingType, searchOption) {
 
 export function changeSearch(text) {
   return { type: CHANGE_SEARCH, payload: text };
+}
+
+export function changeSorting(text) {
+  return { type: CHANGE_SORTING, payload: text };
 }
