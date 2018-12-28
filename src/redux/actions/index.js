@@ -1,20 +1,28 @@
-import { ADD_ARTICLE } from '../constants/action-types';
+import {
+  FETCH_DEFAULT,
+  FETCH_FROM_SEARCH,
+  CHANGE_SEARCH
+} from '../constants/action-types';
 import { fetchFromSearch, fetchDefault } from '../../utils/dataLoaders';
 
-export function addArticle(payload) {
-  return { type: ADD_ARTICLE, payload };
+export function getDefaultData(limit) {
+  return function thunk(dispatch) {
+    return fetchDefault(limit).then(json => {
+      dispatch({ type: FETCH_DEFAULT, payload: json.data });
+    });
+  };
 }
 
-export function getData() {
+export function getSearchData(searchString, sortingType, searchOption) {
   return function thunk(dispatch) {
-    // return fetch('https://jsonplaceholder.typicode.com/posts')
-
-    return (
-      fetchDefault(12) //.then(data =>
-        // this.setState(state => ({ data: data.data }))
-        .then(json => {
-          dispatch({ type: 'DATA_LOADED', payload: json.data });
-        })
+    return fetchFromSearch(searchString, sortingType, searchOption).then(
+      json => {
+        dispatch({ type: FETCH_FROM_SEARCH, payload: json.data });
+      }
     );
   };
+}
+
+export function changeSearch(text) {
+  return { type: CHANGE_SEARCH, payload: text };
 }

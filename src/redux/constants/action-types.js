@@ -1,1 +1,3 @@
-export const ADD_ARTICLE = 'ADD_ARTICLE';
+export const FETCH_DEFAULT = 'FETCH_DEFAULT';
+export const FETCH_FROM_SEARCH = 'FETCH_FROM_SEARCH';
+export const CHANGE_SEARCH = 'CHANGE_SEARCH';

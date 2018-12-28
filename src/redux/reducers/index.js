@@ -1,20 +1,24 @@
-import { ADD_ARTICLE } from '../constants/action-types';
+import {
+  FETCH_DEFAULT,
+  FETCH_FROM_SEARCH,
+  CHANGE_SEARCH
+} from '../constants/action-types';
 
 const initialState = {
   articles: [],
-  results: []
+  movies: [],
+  sortingType: 'release date',
+  searchOption: 'title'
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_ARTICLE:
-      return Object.assign({}, state, {
-        articles: state.articles.concat(action.payload)
-      });
-    case 'DATA_LOADED':
-      return Object.assign({}, state, {
-        results: state.results.concat(action.payload)
-      });
+    case FETCH_DEFAULT:
+      return { ...state, movies: action.payload };
+    case FETCH_FROM_SEARCH:
+      return { ...state, movies: action.payload };
+    case CHANGE_SEARCH:
+      return { ...state, searchOption: action.payload };
     default:
       return state;
   }

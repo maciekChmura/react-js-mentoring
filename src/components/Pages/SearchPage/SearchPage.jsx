@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchFromSearch, fetchDefault } from '../../../utils/dataLoaders';
-import { getData } from '../../../redux/actions';
+import { getDefaultData, getSearchData } from '../../../redux/actions';
 import {
   sortingTypeForSearch,
   sortingTypeForDisplay
@@ -14,17 +13,15 @@ import ResultsOptions from '../../Helper/ResultsOptions/ResultsOptions';
 
 import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
 
-const mapStateToProps = state => ({ results: state.results });
+const mapStateToProps = state => ({ movies: state.movies });
 
 class SearchPageRedux extends Component {
   state = {
-    // data: '',
-    sortingType: 'release date',
-    searchOption: 'title'
+    sortingType: 'release date'
   };
 
   componentDidMount = () => {
-    this.props.getData();
+    this.props.getDefaultData(12);
   };
 
   changeSorting = data => {
@@ -33,42 +30,29 @@ class SearchPageRedux extends Component {
 
   performSearch = searchString => {
     const { sortingType, searchOption } = this.state;
-    fetchFromSearch(
+    this.props.getSearchData(
       searchString,
       sortingTypeForSearch[sortingType],
       searchOption
-    ).then(data => this.setState(state => ({ data: data.data })));
-  };
-
-  changeSearch = data => {
-    event.preventDefault();
-    this.setState(state => ({ searchOption: data }));
+    );
   };
 
   render() {
-    const { data, sortingType, searchOption } = this.state;
-
+    const { sortingType } = this.state;
+    const { movies } = this.props;
     return (
       <SearchCSSGrid>
         <HeaderCSSGrid>
           <PageName />
           <FormTitle />
-          <SearchForm
-            handleFormSubmit={this.performSearch}
-            searchOption={searchOption}
-            changeSearch={this.changeSearch}
-          />
+          <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
         <ResultsOptions
-          dataSize={this.props.results.length}
+          dataSize={movies.length}
           changeSorting={this.changeSorting}
           sortingType={sortingTypeForDisplay[sortingType]}
         />
-        {this.props.results ? (
-          <Results results={this.props.results} />
-        ) : (
-          <p>loading</p>
-        )}
+        {movies ? <Results results={movies} /> : <p>loading</p>}
       </SearchCSSGrid>
     );
   }
@@ -76,7 +60,7 @@ class SearchPageRedux extends Component {
 
 const SearchPage = connect(
   mapStateToProps,
-  { getData }
+  { getDefaultData, getSearchData }
 )(SearchPageRedux);
 
 export default SearchPage;
