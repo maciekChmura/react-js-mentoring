@@ -46,6 +46,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@redux-offline/redux-offline": "^2.5.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.1",

@@ -6,7 +6,6 @@ import {
 } from '../constants/action-types';
 
 const initialState = {
-  articles: [],
   movies: [],
   sortingType: 'release date',
   searchOption: 'title'
