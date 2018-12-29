@@ -17,6 +17,8 @@ export const InputWrapper = styled.input`
   border-radius: 4px;
 `;
 
+InputWrapper.displayName = 'InputWrapper';
+
 export const ButtonsWrapper = styled.div`
   width: 800px;
   display: flex;

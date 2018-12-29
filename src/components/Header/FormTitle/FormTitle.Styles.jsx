@@ -8,4 +8,6 @@ const H2 = styled.h2`
   height: auto;
 `;
 
+H2.displayName = 'H2';
+
 export default H2;

@@ -6,7 +6,22 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev --open --progress --config webpack.config.js",
     "build": "webpack --env.prod -p --config webpack.config.js",
-    "test": "jest"
+    "test": "jest --coverage --watchAll --verbose",
+    "updateSnaps": "jest --updateSnapshot",
+    "cypress": "cypress open"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "coveragePathIgnorePatterns": [
+      "ErrorBoundary.jsx"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/cypress"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/enzyme.js"
   },
   "repository": {
     "type": "git",
@@ -22,12 +37,17 @@
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.9.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cypress": "^3.1.4",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
@@ -39,6 +59,7 @@
     "jest": "^23.6.0",
     "prettier": "1.15.2",
     "react-hot-loader": "^4.3.11",
+    "react-test-renderer": "^16.7.0",
     "redux-devtools": "^3.4.2",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
@@ -46,6 +67,8 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "jest-styled-components": "^6.3.1",
+    "node-fetch": "^2.3.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.1",

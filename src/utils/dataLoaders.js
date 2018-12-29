@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 const BASE_URL = 'http://react-cdp-api.herokuapp.com';
 
 const joinParams = (paramsObject = {}) => {

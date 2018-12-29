@@ -13,4 +13,6 @@ const Button = styled.button`
   text-transform: uppercase;
 `;
 
+Button.displayName = 'Button';
+
 export default Button;
