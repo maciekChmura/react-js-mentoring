@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeSearch } from '../../../redux/actions';
 import {
   Wrapper,
   Display,
@@ -8,7 +10,9 @@ import {
 } from './SearchForm.Styles';
 import OptionButton from '../../Helper/OptionButton/OptionButton';
 
-class SearchForm extends Component {
+const mapStateToProps = state => ({ searchOption: state.searchOption });
+
+export class SearchForm extends Component {
   state = {
     searchValue: ''
   };
@@ -27,14 +31,18 @@ class SearchForm extends Component {
     this.props.handleFormSubmit(this.state.searchValue);
   };
 
+  changeSearch = text => {
+    this.props.changeSearch(text);
+  };
+
   render() {
-    const { searchOption, changeSearch } = this.props;
+    const { searchOption } = this.props;
     const { searchValue } = this.state;
     return (
       <Wrapper>
         <form onSubmit={this.handleFormSubmit}>
           <InputWrapper
-            id="searchInput"
+            id="location"
             placeholder="type something"
             value={searchValue}
             onChange={this.handleInputChange}
@@ -46,7 +54,7 @@ class SearchForm extends Component {
             {['title', 'genres'].map(title => (
               <OptionButton
                 text={title}
-                changeOption={changeSearch}
+                changeOption={this.changeSearch}
                 option={searchOption}
                 key={title}
               />
@@ -61,4 +69,7 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default connect(
+  mapStateToProps,
+  { changeSearch }
+)(SearchForm);

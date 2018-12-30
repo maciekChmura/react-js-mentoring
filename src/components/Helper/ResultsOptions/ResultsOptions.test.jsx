@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ResultsOptions from './ResultsOptions';
+import { ResultsOptions } from './ResultsOptions';
 
 test('ResultsOptions renders', () => {
   const component = renderer.create(<ResultsOptions />);
