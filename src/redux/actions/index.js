@@ -19,19 +19,26 @@ export function searchStarted() {
   return { type: SEARCH_STARTED };
 }
 
+function searchSuccess(data) {
+  return {
+    type: SEARCH_SUCCESS,
+    payload: data.data
+  };
+}
+
 export function searchFailure() {
   return { type: SEARCH_FAILURE };
 }
 
 export function getSearchData(searchString, sortingType, searchOption) {
-  return function thunk(dispatch) {
-    dispatch({ type: SEARCH_STARTED });
+  return dispatch => {
+    dispatch(searchStarted());
     return fetchFromSearch(searchString, sortingType, searchOption)
       .then(json => {
-        dispatch({ type: SEARCH_SUCCESS, payload: json.data });
+        dispatch(searchSuccess(json));
       })
       .catch(err => {
-        dispatch({ type: SEARCH_FAILURE });
+        dispatch(searchFailure());
       });
   };
 }
