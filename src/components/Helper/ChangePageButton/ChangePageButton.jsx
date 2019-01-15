@@ -3,7 +3,7 @@ import Button from './ChangePageButton.Styles';
 
 const ChangePageButton = ({ changePage }) => (
   <Button onClick={changePage} id="changePageButton">
-    change page
+    go back
   </Button>
 );
 

@@ -11,24 +11,31 @@ import { ChangePageWrapper } from './App.Styles';
 
 class App extends Component {
   state = {
-    pageType: 'search'
+    pageType: 'search',
+    selectedMovieId: ''
   };
 
-  changePage = () => {
+  changePage = id => {
     const { pageType } = this.state;
     const newType = pageType === 'search' ? 'detail' : 'search';
-    this.setState(state => ({ pageType: newType }));
+    this.setState({ pageType: newType, selectedMovieId: id });
   };
 
   render() {
-    const { pageType } = this.state;
+    const { pageType, selectedMovieId } = this.state;
     return (
       <Provider store={store}>
         <ErrorBoundary>
           <GlobalStyle />
-          {pageType === 'search' ? <SearchPage /> : <DetailPage />}
+          {pageType === 'search' ? (
+            <SearchPage changePage={this.changePage} />
+          ) : (
+            <DetailPage movieId={selectedMovieId} />
+          )}
           <ChangePageWrapper>
-            <ChangePageButton changePage={this.changePage} />
+            {pageType !== 'search' && (
+              <ChangePageButton changePage={this.changePage} />
+            )}
           </ChangePageWrapper>
         </ErrorBoundary>
       </Provider>

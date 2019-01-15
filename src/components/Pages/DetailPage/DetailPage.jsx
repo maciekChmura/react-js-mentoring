@@ -9,7 +9,8 @@ class DetailPage extends Component {
   };
 
   componentDidMount = () => {
-    fetchById(12).then(data => this.setState(state => ({ movie: data })));
+    const { movieId } = this.props;
+    fetchById(movieId).then(data => this.setState({ movie: data }));
   };
 
   render() {

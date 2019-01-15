@@ -19,4 +19,18 @@ describe('actions', () => {
     };
     expect(actions.changeSorting(payload)).toEqual(expectedAction);
   });
+
+  it('should trigger start search', () => {
+    const expectedAction = {
+      type: types.SEARCH_STARTED
+    };
+    expect(actions.searchStarted()).toEqual(expectedAction);
+  });
+
+  it('should trigger search failure', () => {
+    const expectedAction = {
+      type: types.SEARCH_FAILURE
+    };
+    expect(actions.searchFailure()).toEqual(expectedAction);
+  });
 });

@@ -1,22 +1,32 @@
 import {
-  FETCH_DEFAULT,
-  FETCH_FROM_SEARCH,
   CHANGE_SEARCH,
-  CHANGE_SORTING
+  CHANGE_SORTING,
+  SEARCH_STARTED,
+  SEARCH_SUCCESS,
+  SEARCH_FAILURE
 } from '../constants/action-types';
 
 const initialState = {
   movies: [],
   sortingType: 'release date',
-  searchOption: 'title'
+  searchOption: 'title',
+  isSearching: false,
+  error: false
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_DEFAULT:
-      return { ...state, movies: action.payload };
-    case FETCH_FROM_SEARCH:
-      return { ...state, movies: action.payload };
+    case SEARCH_SUCCESS:
+      return {
+        ...state,
+        movies: action.payload,
+        isSearching: false,
+        error: false
+      };
+    case SEARCH_STARTED:
+      return { ...state, isSearching: true, error: false };
+    case SEARCH_FAILURE:
+      return { ...state, isSearching: false, error: true };
     case CHANGE_SEARCH:
       return { ...state, searchOption: action.payload };
     case CHANGE_SORTING:

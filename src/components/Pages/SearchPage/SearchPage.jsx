@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getDefaultData, getSearchData } from '../../../redux/actions';
+import { getSearchData } from '../../../redux/actions';
 import {
   sortingTypeForSearch,
   sortingTypeForDisplay
@@ -10,31 +10,33 @@ import FormTitle from '../../Header/FormTitle/FormTitle';
 import SearchForm from '../../Header/SearchForm/SearchForm';
 import Results from '../../Body/Results/Results';
 import ResultsOptions from '../../Helper/ResultsOptions/ResultsOptions';
+import LoadingWrapper from '../../Helper/Loading/Loading';
 
 import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
 
 const mapStateToProps = state => ({
   movies: state.movies,
   sortingType: state.sortingType,
-  searchOption: state.searchOption
+  searchOption: state.searchOption,
+  isSearching: state.isSearching,
+  error: state.isSearching
 });
 
 export class SearchPage extends Component {
-  componentDidMount = () => {
-    this.props.getDefaultData(12);
-  };
-
   performSearch = searchString => {
-    const { sortingType, searchOption } = this.props;
-    this.props.getSearchData(
+    const { sortingType, searchOption, getSearchData, error } = this.props;
+    getSearchData(
       searchString,
       sortingTypeForSearch[sortingType],
       searchOption
     );
+    if (error) {
+      console.log('Search failed');
+    }
   };
 
   render() {
-    const { movies, sortingType } = this.props;
+    const { movies, sortingType, changePage, isSearching } = this.props;
     return (
       <SearchCSSGrid>
         <HeaderCSSGrid>
@@ -43,7 +45,13 @@ export class SearchPage extends Component {
           <SearchForm handleFormSubmit={this.performSearch} />
         </HeaderCSSGrid>
         <ResultsOptions sortingType={sortingTypeForDisplay[sortingType]} />
-        {movies ? <Results results={movies} /> : <p>loading</p>}
+        {isSearching ? (
+          <LoadingWrapper />
+        ) : (
+          movies.length !== 0 && (
+            <Results results={movies} changePage={changePage} />
+          )
+        )}
       </SearchCSSGrid>
     );
   }
@@ -51,5 +59,5 @@ export class SearchPage extends Component {
 
 export default connect(
   mapStateToProps,
-  { getDefaultData, getSearchData }
+  { getSearchData }
 )(SearchPage);
