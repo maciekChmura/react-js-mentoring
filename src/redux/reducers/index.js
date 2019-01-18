@@ -3,7 +3,8 @@ import {
   CHANGE_SORTING,
   SEARCH_STARTED,
   SEARCH_SUCCESS,
-  SEARCH_FAILURE
+  SEARCH_FAILURE,
+  SELECT_MOVIE
 } from '../constants/action-types';
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
   sortingType: 'release date',
   searchOption: 'title',
   isSearching: false,
-  error: false
+  error: false,
+  selectedMovie: ''
 };
 
 function rootReducer(state = initialState, action) {
@@ -31,6 +33,8 @@ function rootReducer(state = initialState, action) {
       return { ...state, searchOption: action.payload };
     case CHANGE_SORTING:
       return { ...state, sortingType: action.payload };
+    case SELECT_MOVIE:
+      return { ...state, selectedMovie: action.payload };
     default:
       return state;
   }

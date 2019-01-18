@@ -4,20 +4,21 @@ import MovieDetails from '../../Detail/MovieDetails';
 import Detail from './DetailPage.Styles';
 
 class DetailPage extends Component {
-  state = {
-    movie: ''
-  };
+  // state = {
+  //   movie: ''
+  // };
 
-  componentDidMount = () => {
-    const { movieId } = this.props;
-    fetchById(movieId).then(data => this.setState({ movie: data }));
-  };
+  // componentDidMount = () => {
+  //   const { movieId } = this.props;
+  //   fetchById(movieId).then(data => this.setState({ movie: data }));
+  // };
 
   render() {
-    const { movie } = this.state;
+    // const { movie } = this.state;
+    const { movieData } = this.props;
     return (
       <Detail>
-        {movie ? <MovieDetails details={movie} /> : <p>loading</p>}
+        {movieData ? <MovieDetails details={movieData} /> : <p>loading</p>}
       </Detail>
     );
   }

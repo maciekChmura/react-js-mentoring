@@ -4,9 +4,10 @@ import MovieTile from '../MovieTile/MovieTile';
 
 const Results = ({ results, changePage }) => (
   <ResultsWrapper>
-    {results.map(result => (
-      <MovieTile key={result.id} data={result} changePage={changePage} />
-    ))}
+    {results.map(result =>
+      console.log(result)
+      //<MovieTile key={result.id} data={result} changePage={changePage} />
+    )}
   </ResultsWrapper>
 );
 

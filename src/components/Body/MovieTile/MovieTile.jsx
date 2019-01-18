@@ -1,16 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { selectMovie } from '../../../redux/actions';
 import MovieTileWrapper from './MovieTile.Styles';
 import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieInfo from '../MovieInfo/MovieInfo';
 import MovieGenre from '../MovieGenre/MovieGenre';
 
 const MovieTile = ({
+  // chyba cos tu jest nei tak z data
+  data,
   data: { poster_path, title, release_date, genres, id },
   changePage
 }) => (
   <MovieTileWrapper
     onClick={() => {
-      changePage(id);
+      console.log(data);
+      // changePage(id);
+      selectMovie(data);
     }}
   >
     <MoviePoster posterImage={poster_path} />
@@ -19,4 +25,7 @@ const MovieTile = ({
   </MovieTileWrapper>
 );
 
-export default MovieTile;
+export default connect(
+  // mapStateToProps,
+  { selectMovie }
+)(MovieTile);

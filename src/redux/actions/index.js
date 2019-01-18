@@ -3,7 +3,8 @@ import {
   CHANGE_SORTING,
   SEARCH_STARTED,
   SEARCH_SUCCESS,
-  SEARCH_FAILURE
+  SEARCH_FAILURE,
+  SELECT_MOVIE
 } from '../constants/action-types';
 import { fetchFromSearch } from '../../utils/dataLoaders';
 
@@ -41,4 +42,8 @@ export function getSearchData(searchString, sortingType, searchOption) {
         dispatch(searchFailure());
       });
   };
+}
+
+export function selectMovie(movieData) {
+  return { type: SELECT_MOVIE, payload: movieData };
 }

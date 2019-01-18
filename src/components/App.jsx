@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import store from '../redux/store';
+import { connect } from 'react-redux';
 import GlobalStyle from './GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
 import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
@@ -9,38 +8,38 @@ import DetailPage from './Pages/DetailPage/DetailPage';
 
 import { ChangePageWrapper } from './App.Styles';
 
-class App extends Component {
-  state = {
-    pageType: 'search',
-    selectedMovieId: ''
-  };
+const mapStateToProps = state => ({
+  selectedMovie: state.selectedMovie
+});
 
-  changePage = id => {
-    const { pageType } = this.state;
-    const newType = pageType === 'search' ? 'detail' : 'search';
-    this.setState({ pageType: newType, selectedMovieId: id });
-  };
+class App extends Component {
+  // state = {
+  //   selectedMovieId: ''
+  // };
+
+  // changePage = id => {
+  //   this.setState({ selectedMovieId: id });
+  // };
 
   render() {
-    const { pageType, selectedMovieId } = this.state;
+    const { selectedMovie } = this.props;
     return (
-      <Provider store={store}>
-        <ErrorBoundary>
-          <GlobalStyle />
-          {pageType === 'search' ? (
-            <SearchPage changePage={this.changePage} />
-          ) : (
-            <DetailPage movieId={selectedMovieId} />
+      <ErrorBoundary>
+        <GlobalStyle />
+        {selectedMovie === '' ? (
+          <SearchPage changePage={this.changePage} />
+        ) : (
+          <DetailPage movieData={selectedMovie} />
+        )}
+        <ChangePageWrapper>
+          {selectedMovie !== '' && (
+            <ChangePageButton changePage={this.changePage} />
           )}
-          <ChangePageWrapper>
-            {pageType !== 'search' && (
-              <ChangePageButton changePage={this.changePage} />
-            )}
-          </ChangePageWrapper>
-        </ErrorBoundary>
-      </Provider>
+          {console.log(selectedMovie)}
+        </ChangePageWrapper>
+      </ErrorBoundary>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
