@@ -4,7 +4,8 @@ import {
   SEARCH_STARTED,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
-  SELECT_MOVIE
+  SELECT_MOVIE,
+  UN_SELECT_MOVIE
 } from '../constants/action-types';
 import { fetchFromSearch } from '../../utils/dataLoaders';
 
@@ -46,4 +47,8 @@ export function getSearchData(searchString, sortingType, searchOption) {
 
 export function selectMovie(movieData) {
   return { type: SELECT_MOVIE, payload: movieData };
+}
+
+export function unSelectMovie() {
+  return { type: UN_SELECT_MOVIE };
 }

@@ -48,9 +48,7 @@ export class SearchPage extends Component {
         {isSearching ? (
           <LoadingWrapper />
         ) : (
-          movies.length !== 0 && (
-            <Results results={movies} changePage={changePage} />
-          )
+          movies.length !== 0 && <Results results={movies} />
         )}
       </SearchCSSGrid>
     );

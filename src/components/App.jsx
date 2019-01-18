@@ -27,7 +27,7 @@ class App extends Component {
       <ErrorBoundary>
         <GlobalStyle />
         {selectedMovie === '' ? (
-          <SearchPage changePage={this.changePage} />
+          <SearchPage />
         ) : (
           <DetailPage movieData={selectedMovie} />
         )}
@@ -35,7 +35,6 @@ class App extends Component {
           {selectedMovie !== '' && (
             <ChangePageButton changePage={this.changePage} />
           )}
-          {console.log(selectedMovie)}
         </ChangePageWrapper>
       </ErrorBoundary>
     );

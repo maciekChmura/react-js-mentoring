@@ -7,18 +7,11 @@ import MovieInfo from '../MovieInfo/MovieInfo';
 import MovieGenre from '../MovieGenre/MovieGenre';
 
 const MovieTile = ({
-  // chyba cos tu jest nei tak z data
   data,
-  data: { poster_path, title, release_date, genres, id },
-  changePage
+  data: { poster_path, title, release_date, genres },
+  selectMovie
 }) => (
-  <MovieTileWrapper
-    onClick={() => {
-      console.log(data);
-      // changePage(id);
-      selectMovie(data);
-    }}
-  >
+  <MovieTileWrapper onClick={() => selectMovie(data)}>
     <MoviePoster posterImage={poster_path} />
     <MovieInfo title={title} release_date={release_date} />
     <MovieGenre genres={genres} />
@@ -26,6 +19,6 @@ const MovieTile = ({
 );
 
 export default connect(
-  // mapStateToProps,
+  null,
   { selectMovie }
 )(MovieTile);

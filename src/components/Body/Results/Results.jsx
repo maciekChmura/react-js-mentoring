@@ -2,12 +2,12 @@ import React from 'react';
 import ResultsWrapper from './Results.Styles';
 import MovieTile from '../MovieTile/MovieTile';
 
-const Results = ({ results, changePage }) => (
+const Results = ({ results }) => (
   <ResultsWrapper>
-    {results.map(result =>
-      console.log(result)
-      //<MovieTile key={result.id} data={result} changePage={changePage} />
-    )}
+    {results.map(result => (
+      // console.log(result)
+      <MovieTile key={result.id} data={result} />
+    ))}
   </ResultsWrapper>
 );
 
