@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import MovieTile from './MovieTile';
+import { MovieTile } from './MovieTile';
 
 describe('MovieTile', () => {
   const data = {

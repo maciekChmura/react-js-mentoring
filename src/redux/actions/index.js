@@ -5,7 +5,8 @@ import {
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
   SELECT_MOVIE,
-  UN_SELECT_MOVIE
+  UN_SELECT_MOVIE,
+  UPDATE_SEARCH_VALUE
 } from '../constants/action-types';
 import { fetchFromSearch } from '../../utils/dataLoaders';
 
@@ -51,4 +52,8 @@ export function selectMovie(movieData) {
 
 export function unSelectMovie() {
   return { type: UN_SELECT_MOVIE };
+}
+
+export function updateSearchValue(searchValue) {
+  return { type: UPDATE_SEARCH_VALUE, payload: searchValue };
 }

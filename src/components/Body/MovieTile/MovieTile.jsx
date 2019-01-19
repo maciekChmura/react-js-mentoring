@@ -6,7 +6,7 @@ import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieInfo from '../MovieInfo/MovieInfo';
 import MovieGenre from '../MovieGenre/MovieGenre';
 
-const MovieTile = ({
+export const MovieTile = ({
   data,
   data: { poster_path, title, release_date, genres },
   selectMovie

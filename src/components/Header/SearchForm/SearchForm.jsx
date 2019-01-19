@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeSearch } from '../../../redux/actions';
+import { changeSearch, updateSearchValue } from '../../../redux/actions';
 import {
   Wrapper,
   Display,
@@ -10,15 +10,14 @@ import {
 } from './SearchForm.Styles';
 import OptionButton from '../../Helper/OptionButton/OptionButton';
 
-const mapStateToProps = state => ({ searchOption: state.searchOption });
+const mapStateToProps = state => ({
+  searchOption: state.searchOption,
+  searchValue: state.searchValue
+});
 
 export class SearchForm extends Component {
-  state = {
-    searchValue: ''
-  };
-
   handleInputChange = event => {
-    this.setState({ searchValue: event.target.value });
+    this.props.updateSearchValue(event.target.value);
   };
 
   handleKeyPress = event => {
@@ -28,7 +27,7 @@ export class SearchForm extends Component {
   };
 
   handleFormSubmit = () => {
-    this.props.handleFormSubmit(this.state.searchValue);
+    this.props.handleFormSubmit(this.props.searchValue);
   };
 
   changeSearch = text => {
@@ -36,8 +35,7 @@ export class SearchForm extends Component {
   };
 
   render() {
-    const { searchOption } = this.props;
-    const { searchValue } = this.state;
+    const { searchOption, searchValue } = this.props;
     return (
       <Wrapper>
         <form onSubmit={this.handleFormSubmit}>
@@ -71,5 +69,5 @@ export class SearchForm extends Component {
 
 export default connect(
   mapStateToProps,
-  { changeSearch }
+  { changeSearch, updateSearchValue }
 )(SearchForm);

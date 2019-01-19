@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ChangePageButton from './ChangePageButton';
+import { ChangePageButton } from './ChangePageButton';
 
 test('ChangePageButton renders', () => {
   const component = renderer.create(<ChangePageButton />);

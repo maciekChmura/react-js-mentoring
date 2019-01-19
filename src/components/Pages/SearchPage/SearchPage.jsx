@@ -36,7 +36,7 @@ export class SearchPage extends Component {
   };
 
   render() {
-    const { movies, sortingType, changePage, isSearching } = this.props;
+    const { movies, sortingType, isSearching } = this.props;
     return (
       <SearchCSSGrid>
         <HeaderCSSGrid>

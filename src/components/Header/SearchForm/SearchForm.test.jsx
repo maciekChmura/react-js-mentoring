@@ -9,17 +9,6 @@ describe('SearchForm', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('InputWrapper onChange updates state', () => {
-    const component = shallow(<SearchForm />);
-    const eventData = {
-      target: {
-        value: 'test'
-      }
-    };
-    component.find('InputWrapper').prop('onChange')(eventData);
-    expect(component.state('searchValue')).toEqual('test');
-  });
-
   it('InputWrapper onKeyPress calls handleFormSubmit', () => {
     const component = shallow(<SearchForm />);
     const eventData = {

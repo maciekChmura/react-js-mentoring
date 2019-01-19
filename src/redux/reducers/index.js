@@ -5,7 +5,8 @@ import {
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
   SELECT_MOVIE,
-  UN_SELECT_MOVIE
+  UN_SELECT_MOVIE,
+  UPDATE_SEARCH_VALUE
 } from '../constants/action-types';
 
 const initialState = {
@@ -39,6 +40,8 @@ function rootReducer(state = initialState, action) {
       return { ...state, selectedMovie: action.payload };
     case UN_SELECT_MOVIE:
       return { ...state, selectedMovie: '' };
+    case UPDATE_SEARCH_VALUE:
+      return { ...state, searchValue: action.payload };
     default:
       return state;
   }

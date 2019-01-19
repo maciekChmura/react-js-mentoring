@@ -7,7 +7,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
-  it('should change search option', () => {
+  it('call to changeSearch should return change search action', () => {
     const payload = 'title';
     const expectedAction = {
       type: types.CHANGE_SEARCH,
@@ -16,7 +16,7 @@ describe('actions', () => {
     expect(actions.changeSearch(payload)).toEqual(expectedAction);
   });
 
-  it('should change sorting option', () => {
+  it('call to changeSorting should return change sorting action', () => {
     const payload = 'rating';
     const expectedAction = {
       type: types.CHANGE_SORTING,
@@ -25,14 +25,14 @@ describe('actions', () => {
     expect(actions.changeSorting(payload)).toEqual(expectedAction);
   });
 
-  it('should trigger start search', () => {
+  it('call to searchStarted should return search started action', () => {
     const expectedAction = {
       type: types.SEARCH_STARTED
     };
     expect(actions.searchStarted()).toEqual(expectedAction);
   });
 
-  it('should trigger search failure', () => {
+  it('call to searchFailure should return search failure action', () => {
     const expectedAction = {
       type: types.SEARCH_FAILURE
     };

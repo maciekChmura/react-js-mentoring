@@ -13,14 +13,6 @@ const mapStateToProps = state => ({
 });
 
 class App extends Component {
-  // state = {
-  //   selectedMovieId: ''
-  // };
-
-  // changePage = id => {
-  //   this.setState({ selectedMovieId: id });
-  // };
-
   render() {
     const { selectedMovie } = this.props;
     return (
