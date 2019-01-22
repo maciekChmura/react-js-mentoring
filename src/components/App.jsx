@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GlobalStyle from './GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
 import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
 import SearchPage from './Pages/SearchPage/SearchPage';
@@ -17,7 +16,6 @@ class App extends Component {
     const { selectedMovie } = this.props;
     return (
       <ErrorBoundary>
-        <GlobalStyle />
         {selectedMovie === '' ? (
           <SearchPage />
         ) : (

@@ -11,7 +11,8 @@ module.exports = env => {
     devtool: modeOption ? 'source-map' : 'none',
     devServer: {
       contentBase: './dist',
-      hot: true
+      hot: true,
+      historyApiFallback: true
     },
     module: {
       rules: [
