@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev --open --progress --config webpack.config.js",
     "build": "webpack --env.prod -p --config webpack.config.js",
-    "test": "jest --coverage --watchAll --verbose",
+    "test": "jest --coverage --watchAll --verbose --forceExit",
     "updateSnaps": "jest --updateSnapshot",
     "cypress": "cypress open"
   },
@@ -61,12 +61,14 @@
     "react-hot-loader": "^4.3.11",
     "react-test-renderer": "^16.7.0",
     "redux-devtools": "^3.4.2",
+    "redux-mock-store": "^1.5.3",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
+    "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@redux-offline/redux-offline": "^2.5.1",
     "jest-styled-components": "^6.3.1",
     "node-fetch": "^2.3.0",
     "react": "^16.6.0",
@@ -74,6 +76,7 @@
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.1.2"
   }
 }

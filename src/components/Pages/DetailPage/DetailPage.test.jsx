@@ -11,9 +11,9 @@ describe('DetailPage', () => {
 
   it('should render MovieDetails when state.movie has data', () => {
     const component = shallow(<DetailPage />);
-    component.setState({ movie: '' });
+    component.prop({ movieData: '' });
     expect(component.find('MovieDetails')).toHaveLength(0);
-    component.setState({ movie: 'test' });
-    expect(component.find('MovieDetails')).toHaveLength(1);
+    component.prop({ movieData: 'test' });
+    expect(component.find('MovieDetails'));
   });
 });

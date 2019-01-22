@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
-import { ChangePageWrapper } from './App.Styles';
+import { connect } from 'react-redux';
 import GlobalStyle from './GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
 import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import DetailPage from './Pages/DetailPage/DetailPage';
 
+import { ChangePageWrapper } from './App.Styles';
+
+const mapStateToProps = state => ({
+  selectedMovie: state.selectedMovie
+});
+
 class App extends Component {
-  state = {
-    pageType: 'search'
-  };
-
-  changePage = () => {
-    const { pageType } = this.state;
-    const newType = pageType === 'search' ? 'detail' : 'search';
-    this.setState(state => ({ pageType: newType }));
-  };
-
   render() {
-    const { pageType } = this.state;
+    const { selectedMovie } = this.props;
     return (
       <ErrorBoundary>
         <GlobalStyle />
-        {pageType === 'search' ? <SearchPage /> : <DetailPage />}
+        {selectedMovie === '' ? (
+          <SearchPage />
+        ) : (
+          <DetailPage movieData={selectedMovie} />
+        )}
         <ChangePageWrapper>
-          <ChangePageButton changePage={this.changePage} />
+          {selectedMovie !== '' && (
+            <ChangePageButton changePage={this.changePage} />
+          )}
         </ChangePageWrapper>
       </ErrorBoundary>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

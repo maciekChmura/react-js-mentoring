@@ -5,6 +5,7 @@ import MovieTile from '../MovieTile/MovieTile';
 const Results = ({ results }) => (
   <ResultsWrapper>
     {results.map(result => (
+      // console.log(result)
       <MovieTile key={result.id} data={result} />
     ))}
   </ResultsWrapper>

@@ -17,14 +17,15 @@ const requestOne = (api, id) => {
   return fetch(url).then(r => r.json());
 };
 
-export const fetchFromSearch = (searchString, sortingType, searchOption) =>
-  requestMultiple('movies', {
+export const fetchFromSearch = (searchString, sortingType, searchOption) => {
+  return requestMultiple('movies', {
     sortBy: sortingType,
     sortOrder: 'desc',
     search: searchString,
     searchBy: searchOption,
     limit: 12
   });
+};
 
 export const fetchDefault = limit => requestMultiple('movies', { limit });
 

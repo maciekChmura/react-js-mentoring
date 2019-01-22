@@ -1,10 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { unSelectMovie } from '../../../redux/actions';
 import Button from './ChangePageButton.Styles';
 
-const ChangePageButton = ({ changePage }) => (
-  <Button onClick={changePage} id="changePageButton">
-    change page
+export const ChangePageButton = ({ unSelectMovie }) => (
+  <Button onClick={() => unSelectMovie()} id="changePageButton">
+    go back
   </Button>
 );
 
-export default ChangePageButton;
+export default connect(
+  null,
+  { unSelectMovie }
+)(ChangePageButton);
