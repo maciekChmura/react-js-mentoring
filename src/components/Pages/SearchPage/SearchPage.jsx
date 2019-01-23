@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSearchData } from '../../../redux/actions';
+import { getSearchData, updateSearchValue } from '../../../redux/actions';
 import {
   sortingTypeForSearch,
   sortingTypeForDisplay
@@ -11,6 +12,7 @@ import SearchForm from '../../Header/SearchForm/SearchForm';
 import Results from '../../Body/Results/Results';
 import ResultsOptions from '../../Helper/ResultsOptions/ResultsOptions';
 import LoadingWrapper from '../../Helper/Loading/Loading';
+import history from '../../history';
 
 import { SearchCSSGrid, HeaderCSSGrid } from './SearchPage.Styles';
 
@@ -24,18 +26,29 @@ const mapStateToProps = state => ({
 });
 
 export class SearchPage extends Component {
-  // static getDerivedStateFromProps(props, state) {
-  //   const { term } = props.match.params; // receiving current search term from URL
-  //   const { searchValue } = props; // receiving stored search term
-  //   const { sortingType, searchOption, getSearchData, error } = props;
-  //   console.log(term);
-  //   if (term !== searchValue) {
-  //     // checking whether we should perform new search or not
-  //     getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
-  //   }
+  state = {};
 
-  //   return state;
-  // }
+  static getDerivedStateFromProps(props, state) {
+    const { term } = props.match.params; // receiving current search term from URL
+    const { searchValue } = props; // receiving stored search term
+    const {
+      sortingType,
+      searchOption,
+      getSearchData,
+      updateSearchValue
+    } = props;
+    if (term && term !== searchValue) {
+      console.log(term);
+      console.log(searchValue);
+      // checking whether we should perform new search or not
+      getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
+      updateSearchValue(term);
+      history.push(`/search/${term}`);
+    }
+
+    return state;
+    // return null;
+  }
 
   performSearch = searchString => {
     const { term } = this.props.match.params;
@@ -47,6 +60,9 @@ export class SearchPage extends Component {
       sortingTypeForSearch[sortingType],
       searchOption
     );
+
+    history.push(`/search/${searchString}`);
+
     if (error) {
       console.log('Search failed');
     }
@@ -74,5 +90,5 @@ export class SearchPage extends Component {
 
 export default connect(
   mapStateToProps,
-  { getSearchData }
+  { getSearchData, updateSearchValue }
 )(SearchPage);
