@@ -45,7 +45,7 @@ module.exports = env => {
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),
-      // publicPath: './',   //for now this breaks HtmlWebpackPlugin
+      publicPath: '/',
       filename: 'bundle.js'
     }
   };
