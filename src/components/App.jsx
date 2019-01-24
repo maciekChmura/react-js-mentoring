@@ -23,12 +23,6 @@ class App extends Component {
           <Route path="/film/:id" component={DetailPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
-
-        {/* {selectedMovie === '' ? (
-          <SearchPage />
-        ) : (
-          <DetailPage movieData={selectedMovie} />
-        )} */}
         {selectedMovie !== null && (
           <ChangePageWrapper>
             <ChangePageButton changePage={this.changePage} />

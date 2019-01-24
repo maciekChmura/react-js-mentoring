@@ -37,23 +37,18 @@ export class SearchPage extends Component {
       getSearchData,
       updateSearchValue
     } = props;
+
     if (term && term !== searchValue) {
-      console.log(term);
-      console.log(searchValue);
       // checking whether we should perform new search or not
       getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
       updateSearchValue(term);
       history.push(`/search/${term}`);
     }
-
     return state;
-    // return null;
   }
 
   performSearch = searchString => {
-    const { term } = this.props.match.params;
     const { sortingType, searchOption, getSearchData, error } = this.props;
-    console.log(term);
 
     getSearchData(
       searchString,
