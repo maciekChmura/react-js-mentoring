@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSearchData, updateSearchValue } from '../../../redux/actions';
 import {
@@ -42,7 +41,6 @@ export class SearchPage extends Component {
       // checking whether we should perform new search or not
       getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
       updateSearchValue(term);
-      history.push(`/search/${term}`);
     }
     return state;
   }

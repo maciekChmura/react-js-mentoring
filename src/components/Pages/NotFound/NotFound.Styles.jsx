@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import netflixBack from '../../../img/netflix_back.jpg';
+import { backgroundImage } from '../../styleVariables';
 
 const NotFound = styled.div`
   color: white;
@@ -12,7 +12,7 @@ const NotFound = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url(${netflixBack});
+  background-image: url(${backgroundImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

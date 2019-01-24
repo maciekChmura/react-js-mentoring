@@ -22,23 +22,20 @@ export class SearchForm extends Component {
 
   handleKeyPress = event => {
     if (event.key === 'Enter') {
-      this.handleFormSubmit();
+      this.props.handleFormSubmit(this.props.searchValue);
     }
   };
 
-  handleFormSubmit = () => {
-    this.props.handleFormSubmit(this.props.searchValue);
-  };
-
-  changeSearch = text => {
-    this.props.changeSearch(text);
-  };
-
   render() {
-    const { searchOption, searchValue } = this.props;
+    const {
+      searchOption,
+      searchValue,
+      handleFormSubmit,
+      changeSearch
+    } = this.props;
     return (
       <Wrapper>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={() => handleFormSubmit(searchValue)}>
           <InputWrapper
             id="location"
             placeholder="type something"
@@ -46,18 +43,20 @@ export class SearchForm extends Component {
             onChange={this.handleInputChange}
             onKeyPress={this.handleKeyPress}
           />
-
           <ButtonsWrapper>
             <Display>Search by: </Display>
             {['title', 'genres'].map(title => (
               <OptionButton
                 text={title}
-                changeOption={this.changeSearch}
+                changeOption={() => changeSearch(title)}
                 option={searchOption}
                 key={title}
               />
             ))}
-            <SearchButton onClick={this.handleFormSubmit} type="button">
+            <SearchButton
+              onClick={() => handleFormSubmit(searchValue)}
+              type="button"
+            >
               Search
             </SearchButton>
           </ButtonsWrapper>

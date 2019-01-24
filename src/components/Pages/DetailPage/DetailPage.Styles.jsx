@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import netflixBack from '../../../img/netflix_back.jpg';
+import { backgroundImage } from '../../styleVariables';
 
 const Detail = styled.div`
   width: 900px;
@@ -10,7 +10,7 @@ const Detail = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url(${netflixBack});
+  background-image: url(${backgroundImage});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
