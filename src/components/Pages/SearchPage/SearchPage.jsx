@@ -27,27 +27,36 @@ const mapStateToProps = state => ({
 export class SearchPage extends Component {
   state = {};
 
-  static getDerivedStateFromProps(props, state) {
-    const { term } = props.match.params; // receiving current search term from URL
-    const { searchValue } = props; // receiving stored search term
-    const {
-      sortingType,
-      searchOption,
-      getSearchData,
-      updateSearchValue
-    } = props;
+  // static getDerivedStateFromProps(props, state) {
+  //   const { term } = props.match.params; // receiving current search term from URL
+  //   const { searchValue } = props; // receiving stored search term
+  //   const {
+  //     sortingType,
+  //     searchOption,
+  //     getSearchData,
+  //     updateSearchValue
+  //   } = props;
 
-    if (term && term !== searchValue) {
-      // checking whether we should perform new search or not
-      getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
-      updateSearchValue(term);
+  //   // if (term && term !== searchValue) {
+  //   if (term !== searchValue) {
+  //     // checking whether we should perform new search or not
+  //     //getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
+  //     // updateSearchValue(term);
+  //   }
+  //   return state;
+  // }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.location !== this.props.location) {
+      console.log('props changed');
     }
-    return state;
+    console.log(prevProps);
+    console.log(this.props);
   }
 
   performSearch = searchString => {
     const { sortingType, searchOption, getSearchData, error } = this.props;
-
+    console.log(searchString);
     getSearchData(
       searchString,
       sortingTypeForSearch[sortingType],
