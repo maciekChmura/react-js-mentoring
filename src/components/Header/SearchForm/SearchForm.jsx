@@ -16,13 +16,17 @@ const mapStateToProps = state => ({
 });
 
 export class SearchForm extends Component {
+  state = {
+    stateSearchValue: ''
+  };
+
   handleInputChange = event => {
-    this.props.updateSearchValue(event.target.value);
+    this.setState({ stateSearchValue: event.target.value });
   };
 
   handleKeyPress = event => {
     if (event.key === 'Enter') {
-      this.props.handleFormSubmit(this.props.searchValue);
+      this.props.handleFormSubmit(this.state.stateSearchValue);
     }
   };
 
@@ -35,11 +39,11 @@ export class SearchForm extends Component {
     } = this.props;
     return (
       <Wrapper>
-        <form onSubmit={() => handleFormSubmit(searchValue)}>
+        <form onSubmit={() => handleFormSubmit(this.state.stateSearchValue)}>
           <InputWrapper
             id="location"
             placeholder="type something"
-            value={searchValue}
+            value={this.state.stateSearchValue}
             onChange={this.handleInputChange}
             onKeyPress={this.handleKeyPress}
           />
@@ -54,7 +58,7 @@ export class SearchForm extends Component {
               />
             ))}
             <SearchButton
-              onClick={() => handleFormSubmit(searchValue)}
+              onClick={() => handleFormSubmit(this.state.stateSearchValue)}
               type="button"
             >
               Search

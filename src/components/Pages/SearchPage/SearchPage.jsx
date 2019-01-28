@@ -27,47 +27,52 @@ const mapStateToProps = state => ({
 export class SearchPage extends Component {
   state = {};
 
-  // static getDerivedStateFromProps(props, state) {
-  //   const { term } = props.match.params; // receiving current search term from URL
-  //   const { searchValue } = props; // receiving stored search term
-  //   const {
-  //     sortingType,
-  //     searchOption,
-  //     getSearchData,
-  //     updateSearchValue
-  //   } = props;
-
-  //   // if (term && term !== searchValue) {
-  //   if (term !== searchValue) {
-  //     // checking whether we should perform new search or not
-  //     //getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
-  //     // updateSearchValue(term);
-  //   }
-  //   return state;
-  // }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.location !== this.props.location) {
-      console.log('props changed');
+  static getDerivedStateFromProps(props, state) {
+    const { term } = props.match.params; // receiving current search term from URL
+    const { searchValue } = props; // receiving stored search term
+    const {
+      sortingType,
+      searchOption,
+      getSearchData,
+      updateSearchValue
+    } = props;
+    console.log(props.match.params);
+    console.log(searchValue);
+    if (term && term !== searchValue) {
+      getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
+      updateSearchValue(term);
     }
-    console.log(prevProps);
-    console.log(this.props);
+    return state;
   }
 
+  // componentDidUpdate(prevProps, prevState, snapshot) {
+  //   if (prevProps.location !== this.props.location) {
+  //     console.log('props changed');
+  //   }
+  //   console.log(prevProps);
+  //   console.log(this.props);
+  //   console.log(this.props.history);
+  //   this.props.history.listen(location, action => {
+  //     console.log('listen triggered');
+  //   });
+  // }
+
   performSearch = searchString => {
-    const { sortingType, searchOption, getSearchData, error } = this.props;
-    console.log(searchString);
-    getSearchData(
-      searchString,
-      sortingTypeForSearch[sortingType],
-      searchOption
-    );
+    // const { sortingType, searchOption, getSearchData, error } = this.props;
+    // console.log(searchString);
+    // getSearchData(
+    //   searchString,
+    //   sortingTypeForSearch[sortingType],
+    //   searchOption
+    // );
 
     history.push(`/search/${searchString}`);
+    updateSearchValue(searchString);
+    console.log(searchString);
 
-    if (error) {
-      console.log('Search failed');
-    }
+    // if (error) {
+    //   console.log('Search failed');
+    // }
   };
 
   render() {
