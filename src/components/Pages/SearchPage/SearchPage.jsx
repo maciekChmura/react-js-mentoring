@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getSearchData, updateSearchValue } from '../../../redux/actions';
 import {
   sortingTypeForSearch,
@@ -36,8 +37,6 @@ export class SearchPage extends Component {
       getSearchData,
       updateSearchValue
     } = props;
-    console.log(props.match.params);
-    console.log(searchValue);
     if (term && term !== searchValue) {
       getSearchData(term, sortingTypeForSearch[sortingType], searchOption);
       updateSearchValue(term);
@@ -45,34 +44,20 @@ export class SearchPage extends Component {
     return state;
   }
 
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   if (prevProps.location !== this.props.location) {
-  //     console.log('props changed');
-  //   }
-  //   console.log(prevProps);
-  //   console.log(this.props);
-  //   console.log(this.props.history);
-  //   this.props.history.listen(location, action => {
-  //     console.log('listen triggered');
-  //   });
-  // }
-
   performSearch = searchString => {
-    // const { sortingType, searchOption, getSearchData, error } = this.props;
-    // console.log(searchString);
-    // getSearchData(
-    //   searchString,
-    //   sortingTypeForSearch[sortingType],
-    //   searchOption
-    // );
+    const { sortingType, searchOption, getSearchData, error } = this.props;
+    getSearchData(
+      searchString,
+      sortingTypeForSearch[sortingType],
+      searchOption
+    );
 
     history.push(`/search/${searchString}`);
     updateSearchValue(searchString);
-    console.log(searchString);
 
-    // if (error) {
-    //   console.log('Search failed');
-    // }
+    if (error) {
+      console.log('Search failed');
+    }
   };
 
   render() {
@@ -95,7 +80,9 @@ export class SearchPage extends Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  { getSearchData, updateSearchValue }
-)(SearchPage);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { getSearchData, updateSearchValue }
+  )(SearchPage)
+);

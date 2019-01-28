@@ -31,19 +31,15 @@ export class SearchForm extends Component {
   };
 
   render() {
-    const {
-      searchOption,
-      searchValue,
-      handleFormSubmit,
-      changeSearch
-    } = this.props;
+    const { searchOption, handleFormSubmit, changeSearch } = this.props;
+    const { stateSearchValue } = this.state;
     return (
       <Wrapper>
-        <form onSubmit={() => handleFormSubmit(this.state.stateSearchValue)}>
+        <form onSubmit={() => handleFormSubmit(stateSearchValue)}>
           <InputWrapper
             id="location"
             placeholder="type something"
-            value={this.state.stateSearchValue}
+            value={stateSearchValue}
             onChange={this.handleInputChange}
             onKeyPress={this.handleKeyPress}
           />
@@ -58,7 +54,7 @@ export class SearchForm extends Component {
               />
             ))}
             <SearchButton
-              onClick={() => handleFormSubmit(this.state.stateSearchValue)}
+              onClick={() => handleFormSubmit(stateSearchValue)}
               type="button"
             >
               Search
