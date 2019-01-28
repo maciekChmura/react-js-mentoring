@@ -22,7 +22,7 @@ export function searchStarted() {
   return { type: SEARCH_STARTED };
 }
 
-function searchSuccess(data) {
+export function searchSuccess(data) {
   return {
     type: SEARCH_SUCCESS,
     payload: data.data

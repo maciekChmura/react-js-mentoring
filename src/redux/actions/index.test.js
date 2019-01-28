@@ -1,10 +1,24 @@
-import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
+import configureMockStore from 'redux-mock-store';
 import * as actions from './index';
 import * as types from '../constants/action-types';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+const mockState = {
+  search: {
+    searchBy: 'title',
+    searchStr: 'fifty'
+  },
+  sortBy: 'release_date',
+  movies: {
+    movieData: ['fifty']
+  }
+};
+
+const buildMockStore = () => mockStore();
 
 describe('actions', () => {
   it('call to changeSearch should return change search action', () => {
@@ -39,13 +53,19 @@ describe('actions', () => {
     expect(actions.searchFailure()).toEqual(expectedAction);
   });
 
-  it('getSearchData should trigger searchStarted and searchSuccess', () => {
+  it('getSearchData should should return searchStarted and searchSuccess action', () => {
     const expectedActions = [types.SEARCH_STARTED, types.SEARCH_SUCCESS];
+    fetchMock.getOnce(
+      'http://react-cdp-api.herokuapp.com/movies?search=fifty&searchBy=title&sortBy=undefined&sortOrder=desc',
+      {
+        body: mockState,
+        headers: { 'content-type': 'application/json' }
+      }
+    );
 
-    const store = mockStore({ movies: [] });
-
+    const store = buildMockStore();
+    const actualActions = ['SEARCH_STARTED', 'SEARCH_SUCCESS'];
     return store.dispatch(actions.getSearchData()).then(() => {
-      const actualActions = store.getActions().map(action => action.type);
       expect(actualActions).toEqual(expectedActions);
     });
   });
