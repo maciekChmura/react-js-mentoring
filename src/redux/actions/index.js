@@ -3,12 +3,13 @@ import {
   CHANGE_SORTING,
   SEARCH_STARTED,
   SEARCH_SUCCESS,
+  SEARCH_BY_ID_SUCCESS,
   SEARCH_FAILURE,
   SELECT_MOVIE,
   UN_SELECT_MOVIE,
   UPDATE_SEARCH_VALUE
 } from '../constants/action-types';
-import { fetchFromSearch } from '../../utils/dataLoaders';
+import { fetchFromSearch, fetchById } from '../../utils/dataLoaders';
 
 export function changeSearch(searchType) {
   return { type: CHANGE_SEARCH, payload: searchType };
@@ -29,6 +30,13 @@ export function searchSuccess(data) {
   };
 }
 
+export function searchByIdSuccess(data) {
+  return {
+    type: SEARCH_BY_ID_SUCCESS,
+    payload: data
+  };
+}
+
 export function searchFailure() {
   return { type: SEARCH_FAILURE };
 }
@@ -39,6 +47,19 @@ export function getSearchData(searchString, sortingType, searchOption) {
     return fetchFromSearch(searchString, sortingType, searchOption)
       .then(json => {
         dispatch(searchSuccess(json));
+      })
+      .catch(err => {
+        dispatch(searchFailure());
+      });
+  };
+}
+
+export function getMovieDataById(id) {
+  return dispatch => {
+    dispatch(searchStarted());
+    return fetchById(id)
+      .then(json => {
+        dispatch(searchByIdSuccess(json));
       })
       .catch(err => {
         dispatch(searchFailure());
