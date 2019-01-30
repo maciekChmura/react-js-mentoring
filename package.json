@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --env.dev --open --progress --config webpack.config.js",
+    "dev": "next dev src",
     "build": "webpack --env.prod -p --config webpack.config.js",
     "test": "jest --coverage --watchAll --verbose --forceExit",
     "updateSnaps": "jest --updateSnapshot",
@@ -63,7 +64,8 @@
     "react-test-renderer": "^16.7.0",
     "redux-devtools": "^3.4.2",
     "redux-mock-store": "^1.5.3",
-    "webpack": "^4.26.0",
+    "url-loader": "^1.1.2",
+    "webpack": "4.20.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.4"
@@ -71,6 +73,9 @@
   "dependencies": {
     "@redux-offline/redux-offline": "^2.5.1",
     "jest-styled-components": "^6.3.1",
+    "next": "^7.0.2",
+    "next-redux-wrapper": "^3.0.0-alpha.0",
+    "next-route": "^2.0.0",
     "node-fetch": "^2.3.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

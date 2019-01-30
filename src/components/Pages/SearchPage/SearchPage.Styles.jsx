@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { backgroundImage } from '../../styleVariables';
+// import { backgroundImage } from '../../styleVariables';
 
 export const SearchCSSGrid = styled.div`
   display: grid;
@@ -12,7 +12,7 @@ export const HeaderCSSGrid = styled.div`
   display: grid;
   grid-template-columns: 50px 800px 50px;
   grid-template-rows: 80px 50px 100px;
-  background-image: url(${backgroundImage});
+  /* background-image: url(${backgroundImage}); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,7 +25,7 @@ export const Detail = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url(${backgroundImage});
+  /* background-image: url(${backgroundImage}); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

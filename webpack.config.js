@@ -17,6 +17,19 @@ module.exports = env => {
     module: {
       rules: [
         {
+          test: /\.(png|jpg|gif)$/i,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'images',
+                publicPath: '/images'
+              }
+            }
+          ]
+        },
+        {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: ['babel-loader']
