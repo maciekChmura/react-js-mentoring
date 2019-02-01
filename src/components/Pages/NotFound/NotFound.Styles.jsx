@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { backgroundImage } from '../../styleVariables';
 
-const Detail = styled.div`
+const NotFound = styled.div`
+  color: white;
   width: 900px;
+  height: 500px;
   margin: auto;
   padding: 20px;
   background-color: black;
@@ -16,4 +18,4 @@ const Detail = styled.div`
   background-size: cover;
 `;
 
-export default Detail;
+export default NotFound;

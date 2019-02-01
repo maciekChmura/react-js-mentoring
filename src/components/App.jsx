@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GlobalStyle from './GlobalStyle';
-import ErrorBoundary from './ErrorBoundary';
-import ChangePageButton from './Helper/ChangePageButton/ChangePageButton';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import DetailPage from './Pages/DetailPage/DetailPage';
-
-import { ChangePageWrapper } from './App.Styles';
+import NotFoundPage from './Pages/NotFound/NotFound';
 
 const mapStateToProps = state => ({
   selectedMovie: state.selectedMovie
@@ -14,21 +11,15 @@ const mapStateToProps = state => ({
 
 class App extends Component {
   render() {
-    const { selectedMovie } = this.props;
     return (
-      <ErrorBoundary>
-        <GlobalStyle />
-        {selectedMovie === '' ? (
-          <SearchPage />
-        ) : (
-          <DetailPage movieData={selectedMovie} />
-        )}
-        <ChangePageWrapper>
-          {selectedMovie !== '' && (
-            <ChangePageButton changePage={this.changePage} />
-          )}
-        </ChangePageWrapper>
-      </ErrorBoundary>
+      <>
+        <Switch>
+          <Route path="/" exact component={SearchPage} />
+          <Route path="/search/:term" component={SearchPage} />
+          <Route path="/film/:id" component={DetailPage} />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </>
     );
   }
 }

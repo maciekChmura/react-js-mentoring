@@ -3,6 +3,7 @@ import {
   CHANGE_SORTING,
   SEARCH_STARTED,
   SEARCH_SUCCESS,
+  SEARCH_BY_ID_SUCCESS,
   SEARCH_FAILURE,
   SELECT_MOVIE,
   UN_SELECT_MOVIE,
@@ -15,12 +16,19 @@ const initialState = {
   searchOption: 'title',
   isSearching: false,
   error: false,
-  selectedMovie: '',
+  selectedMovie: null,
   searchValue: ''
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    case SEARCH_BY_ID_SUCCESS:
+      return {
+        ...state,
+        selectedMovie: action.payload,
+        isSearching: false,
+        error: false
+      };
     case SEARCH_SUCCESS:
       return {
         ...state,
@@ -39,7 +47,7 @@ function rootReducer(state = initialState, action) {
     case SELECT_MOVIE:
       return { ...state, selectedMovie: action.payload };
     case UN_SELECT_MOVIE:
-      return { ...state, selectedMovie: '' };
+      return { ...state, selectedMovie: null };
     case UPDATE_SEARCH_VALUE:
       return { ...state, searchValue: action.payload };
     default:

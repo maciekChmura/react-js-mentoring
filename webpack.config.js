@@ -11,7 +11,8 @@ module.exports = env => {
     devtool: modeOption ? 'source-map' : 'none',
     devServer: {
       contentBase: './dist',
-      hot: true
+      hot: true,
+      historyApiFallback: true
     },
     module: {
       rules: [
@@ -25,8 +26,8 @@ module.exports = env => {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images/',
-            publicPath: 'images/'
+            outputPath: 'images',
+            publicPath: '/images'
           }
         }
       ]
@@ -44,7 +45,7 @@ module.exports = env => {
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),
-      // publicPath: './',   //for now this breaks HtmlWebpackPlugin
+      publicPath: '/',
       filename: 'bundle.js'
     }
   };
