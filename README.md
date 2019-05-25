@@ -1,4 +1,6 @@
-React mentoring. This project helped me to understand how to create front-end app with JavaScript.
+![react-logo](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
+## React mentoring. 
+This project helped me to understand how to create front-end app with JavaScript.
 
 Some of the topics covered:
 
