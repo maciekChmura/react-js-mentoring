@@ -71,7 +71,7 @@
   "dependencies": {
     "@redux-offline/redux-offline": "^2.5.1",
     "jest-styled-components": "^6.3.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.7",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.1",
